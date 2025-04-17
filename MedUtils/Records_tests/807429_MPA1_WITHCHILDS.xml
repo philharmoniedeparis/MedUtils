@@ -1,0 +1,1750 @@
+﻿<?xml version="1.0" encoding="utf8" standalone="no" ?>
+<marc:record xmlns:marc="http://www.bs.dk/standards/MarcXchange" area="BIB" id="C_807429" noticeType="MPA1" rule="UNI:1">
+
+	<marc:controlfield tag="000">jm</marc:controlfield>
+
+	<marc:controlfield tag="001">807429</marc:controlfield>
+
+	<marc:datafield ind1=" " ind2=" " tag="100">
+		<marc:subfield code="a">20070209d||||    uuuy0frey0103    ba</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1="|" ind2="|" tag="101">
+		<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="102">
+		<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="125">
+		<marc:subfield code="a">xx</marc:subfield>
+		<marc:subfield code="b">|</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="126">
+		<marc:subfield code="a">agbxhxxd|||||bd</marc:subfield>
+		<marc:subfield code="b">bex</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="127">
+		<marc:subfield code="a">||||||</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1="|" ind2=" " tag="200">
+		<marc:subfield code="a">Musique et marché du travail : Enjeux et perspectives européennes</marc:subfield>
+		<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+		<marc:subfield code="e">séminaire enregistré à la cité de la musique le 17 mars 2007 (10h, amphithéâtre)</marc:subfield>
+		<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1="|" ind2="|" tag="210">
+		<marc:subfield code="a">Paris</marc:subfield>
+		<marc:subfield code="c">Cité de la musique</marc:subfield>
+		<marc:subfield code="d">2007</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="215">
+		<marc:subfield code="a">4h 58 min 5 sec</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="305">
+		<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="0" tag="801">
+		<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+		<marc:subfield code="b">Cite de la musique</marc:subfield>
+		<marc:subfield code="c">20070209</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1="|" ind2="|" tag="856">
+		<marc:subfield code="u">http://mediatheque.cite-musique.fr/masc/link.asp?IDNOTICE=0802784</marc:subfield>
+		<marc:subfield code="2">document numérique lié</marc:subfield>
+		<marc:subfield code="e">||||||||||||</marc:subfield>
+		<marc:subfield code="b">CMAU000115900</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="900">
+		<marc:subfield code="c">CONTRAT_1</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="911">
+		<marc:subfield code="a" referentialName="THESAURUS1" referentialType="THESAURUS">DESC880948</marc:subfield>
+		<marc:subfield code="a" referentialName="THESAURUS1" referentialType="THESAURUS">DESC145872</marc:subfield>
+		<marc:subfield code="a" referentialName="THESAURUS1" referentialType="THESAURUS">DESC68442</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="937">
+		<marc:subfield code="a">MPA1</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="942">
+		<marc:subfield code="c">UNI2P</marc:subfield>
+		<marc:subfield code="#">0</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="945">
+		<marc:subfield code="a">CMAU000115901#01-05 ; CMAU000115902#01-04 ; CMAU000115903#01 ; CMAU000115904#01-02 ; CMAU000115905#01-05</marc:subfield>
+		<marc:subfield code="#">0</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="946">
+		<marc:subfield code="a">20070317</marc:subfield>
+		<marc:subfield code="#">0</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="948">
+		<marc:subfield code="a">CMAU000115904_02</marc:subfield>
+		<marc:subfield code="b">42:32</marc:subfield>
+		<marc:subfield code="c">45:26</marc:subfield>
+		<marc:subfield code="m">CMAU000115900_e</marc:subfield>
+		<marc:subfield code="#">0</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948228">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948228</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Ouverture</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">Laurent Bayle</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">9 min 22 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="1" tag="700">
+					<marc:subfield code="3" id="54473">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">54473</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="010">
+								<marc:subfield code="a">0000000053359317</marc:subfield>
+								<marc:subfield code="2">SAISIE</marc:subfield>
+								<marc:subfield code="d">20210330</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20040322afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="120">
+								<marc:subfield code="a">b </marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Bayle</marc:subfield>
+								<marc:subfield code="b">Laurent</marc:subfield>
+								<marc:subfield code="f">1951-....</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20040721</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+								<marc:subfield code="b">18129</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="994">
+								<marc:subfield code="a">FRBNF12537147</marc:subfield>
+								<marc:subfield code="b">https://data.bnf.fr/ark:/12148/cb12537147j</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115901_01</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948229">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948229</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Travail artistique et trajectoire de professionnalisation</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">45 min 9 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="b">CMAUXXXXXXXXX</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="945">
+					<marc:subfield code="a">CMAU000115901#02-05</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948241">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948241</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Introduction</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+								<marc:subfield code="g">Christiane Louis ; Pascal Nicolas-Le Strat</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">7 min 28 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="701">
+								<marc:subfield code="3" id="560180"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="701">
+								<marc:subfield code="3" id="49309"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115901_02</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62C</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948242">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948242</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">La constitution d'une activité artistique : aspects</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Pascal Nicolas-Le Strat</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">24 min 28 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="700">
+								<marc:subfield code="3" id="49309"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115901_03</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948247">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948247</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Présentation de l'enquête Fneijma ("Le devenir professionnel des titulaires du certificat Fneijma")</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Pascal Nicolas-Le Strat</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">11 min 3 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="700">
+								<marc:subfield code="3" id="49309"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115901_04</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948252">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948252</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Conclusion</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Christiane Louis</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">2 min 10 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="700">
+								<marc:subfield code="3" id="560180"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115901_05</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948233">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948233</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Artistes en Europe, régime d'emploi et statut professionnel</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">Antony Marschutz</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">38 min 48 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="700">
+					<marc:subfield code="3" id="948254">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">948254</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Marschutz</marc:subfield>
+								<marc:subfield code="b">Antony</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="b">CMAUXXXXXXXXX</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="945">
+					<marc:subfield code="a">CMAU000115902#01-03</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948256">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948256</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Introduction et présentation de la Fédération internationale des musiciens</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Antony Marschutz</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">5 min 43 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="948254"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115902_01</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948257">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948257</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Cadres juridiques et mobilité artistique au sein de l'Union Européenne</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Antony Marschutz</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">14 min 44 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="948254"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115902_02</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948259">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948259</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Régime d'emploi et statut professionnel</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Antony Marschutz</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">18 min 21 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="948254"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115902_03</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948262">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948262</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Echange avec le public</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">12 min 6 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115902_04</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948265">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948265</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">eng</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Regard sur l'Allemagne : formation du musicien et marché du travail artistique</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">Katja Schaefer</marc:subfield>
+					<marc:subfield code="g">Christiane Louis, introduction</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">1h 10 min 7 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="300">
+					<marc:subfield code="a">Intervention en anglais traduite en français</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="700">
+					<marc:subfield code="3" id="948266">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">948266</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Schaefer</marc:subfield>
+								<marc:subfield code="b">Katja</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="702">
+					<marc:subfield code="3" id="560180">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">560180</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20040930afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="120">
+								<marc:subfield code="a">a </marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Louis</marc:subfield>
+								<marc:subfield code="b">Christiane</marc:subfield>
+								<marc:subfield code="f">1958-....</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20040930</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115903_01</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948267">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948267</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Introduction à la deuxième partie de la journée</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">Philippe Geoffroy</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">3 min 4 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="700">
+					<marc:subfield code="3" id="948270">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">948270</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Geoffroy</marc:subfield>
+								<marc:subfield code="b">Philippe</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115904_01</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948271">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948271</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Table ronde : Qu'est-ce que le management d'artiste?</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">Catherine Lebris</marc:subfield>
+					<marc:subfield code="g">Kristin Hoefener</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">58 min 37 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="701">
+					<marc:subfield code="3" id="948274">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">948274</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Lebris</marc:subfield>
+								<marc:subfield code="b">Catherine</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="701">
+					<marc:subfield code="3" id="948275">
+						<marc:record>
+							<marc:controlfield tag="000">nx</marc:controlfield>
+							<marc:controlfield tag="001">948275</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903afrey01010101ba0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="200">
+								<marc:subfield code="a">Hoefener</marc:subfield>
+								<marc:subfield code="b">Kristin</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="AUC:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">CITE MUSIQUE</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">APEP</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="941">
+								<marc:subfield code="a">AIC1</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>AUC:8</marc:rule>
+						<marc:area>AUT</marc:area>
+						<marc:noticeType>APEP</marc:noticeType>
+					</marc:subfield>
+					<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115904_02</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="948">
+					<marc:subfield code="a">CMAU000115904_02</marc:subfield>
+					<marc:subfield code="b">42:32</marc:subfield>
+					<marc:subfield code="c">45:26</marc:subfield>
+					<marc:subfield code="m">CMAU000115900_e</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948277">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948277</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Table ronde : l'apport de l'étranger : du conservatoire aux parcours individuels</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">1h 40 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="b">CMAUXXXXXXXXX</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="945">
+					<marc:subfield code="a">CMAU000115905#01-04</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948279">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948279</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Introduction</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Philippe Geoffroy</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">2 min 31 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="948270"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115905_01</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948280">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948280</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Première intervention</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Marie-Claude Segard</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">14 min 19 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="897138"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115905_02</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948281">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948281</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Deuxième intervention</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Charles Barbier</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">20 min 48 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="56185"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115905_03</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="959">
+					<marc:subfield code="3" id="948282">
+						<marc:record>
+							<marc:controlfield tag="000">am</marc:controlfield>
+							<marc:controlfield tag="001">948282</marc:controlfield>
+							<marc:datafield ind1=" " ind2=" " tag="100">
+								<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="101">
+								<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="102">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2=" " tag="200">
+								<marc:subfield code="a">Troisième intervention</marc:subfield>
+								<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+								<marc:subfield code="f">Yann Robin</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="|" tag="210">
+								<marc:subfield code="a">Paris</marc:subfield>
+								<marc:subfield code="c">Cité de la musique</marc:subfield>
+								<marc:subfield code="d">2007</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="215">
+								<marc:subfield code="a">12 min 46 sec</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="305">
+								<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="1" tag="700">
+								<marc:subfield code="3" id="896965"/>
+								<marc:subfield code="4" referentialName="UNI:FONCTION" referentialType="TABLE">800</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2="|" tag="801">
+								<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+								<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+								<marc:subfield code="c">20100903</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1="|" ind2="1" tag="856">
+								<marc:subfield code="d">CMAU000115905_04</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="937">
+								<marc:subfield code="a">MPA3</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="942">
+								<marc:subfield code="c">UNI62P</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+							<marc:datafield ind1=" " ind2=" " tag="946">
+								<marc:subfield code="a">20070317</marc:subfield>
+								<marc:subfield code="#">0</marc:subfield>
+							</marc:datafield>
+						</marc:record>
+						<marc:rule>UNI:1</marc:rule>
+						<marc:area>BIB</marc:area>
+						<marc:noticeType>MPA3</marc:noticeType>
+					</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2="|" tag="959">
+		<marc:subfield code="3" id="948283">
+			<marc:record>
+				<marc:controlfield tag="000">am</marc:controlfield>
+				<marc:controlfield tag="001">948283</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="100">
+					<marc:subfield code="a">20100903m2007         fre 03      ba</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="101">
+					<marc:subfield code="a" referentialName="UNI:LANGUES" referentialType="TABLE">fre</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="102">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2=" " tag="200">
+					<marc:subfield code="a">Echange avec le public</marc:subfield>
+					<marc:subfield code="b">Enregistrement sonore</marc:subfield>
+					<marc:subfield code="f">[Auteurs divers]</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="|" tag="210">
+					<marc:subfield code="a">Paris</marc:subfield>
+					<marc:subfield code="c">Cité de la musique</marc:subfield>
+					<marc:subfield code="d">2007</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="215">
+					<marc:subfield code="a">10 min 12 sec</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="305">
+					<marc:subfield code="a">Archivé à la Cité de la musique</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2="|" tag="801">
+					<marc:subfield code="a" referentialName="UNI:PAYS" referentialType="TABLE">FR</marc:subfield>
+					<marc:subfield code="b">Cité de la Musique - Philharmonie de Paris</marc:subfield>
+					<marc:subfield code="c">20100903</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1="|" ind2="1" tag="856">
+					<marc:subfield code="d">CMAU000115905_05</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">MPA2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="942">
+					<marc:subfield code="c">UNI42P</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="946">
+					<marc:subfield code="a">20070317</marc:subfield>
+					<marc:subfield code="#">0</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>UNI:1</marc:rule>
+			<marc:area>BIB</marc:area>
+			<marc:noticeType>MPA2</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="997">
+		<marc:subfield code="3" id="948222">
+			<marc:record>
+				<marc:controlfield tag="000">oe</marc:controlfield>
+				<marc:controlfield tag="001">948222</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="915">
+					<marc:subfield code="b">CMAU000115900_CDAS</marc:subfield>
+					<marc:subfield code="a">CMAU000115900_CDAS</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="920">
+					<marc:subfield code="d">03/09/2010</marc:subfield>
+					<marc:subfield code="t" referentialName="EXE:TYPDOC" referentialType="TABLE">CDAS</marc:subfield>
+					<marc:subfield code="n">5</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="930">
+					<marc:subfield code="c" referentialName="BIBLIOTHEQUE" referentialType="FICHIER">M</marc:subfield>
+					<marc:subfield code="d" referentialName="EXE:SECTION" referentialType="TABLE">RES1</marc:subfield>
+					<marc:subfield code="g">ARCH 2007-03-17</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">EXEM</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>EXE:97</marc:rule>
+			<marc:area>EXE</marc:area>
+			<marc:noticeType>EXEM</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="997">
+		<marc:subfield code="3" id="948223">
+			<marc:record>
+				<marc:controlfield tag="000">oe</marc:controlfield>
+				<marc:controlfield tag="001">948223</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="915">
+					<marc:subfield code="b">CMAU000115900_DVDAS</marc:subfield>
+					<marc:subfield code="a">CMAU000115900_DVDAS</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="920">
+					<marc:subfield code="d">03/09/2010</marc:subfield>
+					<marc:subfield code="t" referentialName="EXE:TYPDOC" referentialType="TABLE">DVDAS</marc:subfield>
+					<marc:subfield code="n">2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="930">
+					<marc:subfield code="c" referentialName="BIBLIOTHEQUE" referentialType="FICHIER">M</marc:subfield>
+					<marc:subfield code="d" referentialName="EXE:SECTION" referentialType="TABLE">RES1</marc:subfield>
+					<marc:subfield code="g">ARCH 2007-03-17</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">EXEM</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>EXE:97</marc:rule>
+			<marc:area>EXE</marc:area>
+			<marc:noticeType>EXEM</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="997">
+		<marc:subfield code="3" id="948224">
+			<marc:record>
+				<marc:controlfield tag="000">oe</marc:controlfield>
+				<marc:controlfield tag="001">948224</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="915">
+					<marc:subfield code="b">CMAU000115900_CDA</marc:subfield>
+					<marc:subfield code="a">CMAU000115900_CDA</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="920">
+					<marc:subfield code="d">03/09/2010</marc:subfield>
+					<marc:subfield code="t" referentialName="EXE:TYPDOC" referentialType="TABLE">CDA</marc:subfield>
+					<marc:subfield code="n">5</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="930">
+					<marc:subfield code="c" referentialName="BIBLIOTHEQUE" referentialType="FICHIER">M</marc:subfield>
+					<marc:subfield code="d" referentialName="EXE:SECTION" referentialType="TABLE">RES1</marc:subfield>
+					<marc:subfield code="g">ARCH 2007-03-17</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">EXEM</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>EXE:97</marc:rule>
+			<marc:area>EXE</marc:area>
+			<marc:noticeType>EXEM</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="997">
+		<marc:subfield code="3" id="948225">
+			<marc:record>
+				<marc:controlfield tag="000">oe</marc:controlfield>
+				<marc:controlfield tag="001">948225</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="915">
+					<marc:subfield code="b">CMAU000115900_CDM</marc:subfield>
+					<marc:subfield code="a">CMAU000115900_CDM</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="920">
+					<marc:subfield code="d">03/09/2010</marc:subfield>
+					<marc:subfield code="t" referentialName="EXE:TYPDOC" referentialType="TABLE">CDM</marc:subfield>
+					<marc:subfield code="n">5</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="930">
+					<marc:subfield code="c" referentialName="BIBLIOTHEQUE" referentialType="FICHIER">M</marc:subfield>
+					<marc:subfield code="d" referentialName="EXE:SECTION" referentialType="TABLE">RES1</marc:subfield>
+					<marc:subfield code="g">ARCH 2007-03-17</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">EXEM</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>EXE:97</marc:rule>
+			<marc:area>EXE</marc:area>
+			<marc:noticeType>EXEM</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield ind1=" " ind2=" " tag="997">
+		<marc:subfield code="3" id="948226">
+			<marc:record>
+				<marc:controlfield tag="000">oe</marc:controlfield>
+				<marc:controlfield tag="001">948226</marc:controlfield>
+				<marc:datafield ind1=" " ind2=" " tag="915">
+					<marc:subfield code="b">CMAU000115900_DVDR</marc:subfield>
+					<marc:subfield code="a">CMAU000115900_DVDR</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="920">
+					<marc:subfield code="d">03/09/2010</marc:subfield>
+					<marc:subfield code="t" referentialName="EXE:TYPDOC" referentialType="TABLE">DVDR</marc:subfield>
+					<marc:subfield code="n">2</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="930">
+					<marc:subfield code="c" referentialName="BIBLIOTHEQUE" referentialType="FICHIER">M</marc:subfield>
+					<marc:subfield code="d" referentialName="EXE:SECTION" referentialType="TABLE">RES1</marc:subfield>
+					<marc:subfield code="g">ARCH 2007-03-17</marc:subfield>
+				</marc:datafield>
+				<marc:datafield ind1=" " ind2=" " tag="937">
+					<marc:subfield code="a">EXEM</marc:subfield>
+				</marc:datafield>
+			</marc:record>
+			<marc:rule>EXE:97</marc:rule>
+			<marc:area>EXE</marc:area>
+			<marc:noticeType>EXEM</marc:noticeType>
+		</marc:subfield>
+	</marc:datafield>
+
+	<marc:datafield tag="DATECREAT">05/04/2007 17:35:50</marc:datafield>
+
+	<marc:datafield tag="DATEMODIF">17/02/2025 15:54:04</marc:datafield>
+
+	<marc:datafield tag="CREATEUR">JNAVAS</marc:datafield>
+
+	<marc:datafield tag="MODIFICATEUR">ADMINEXPLOITATION</marc:datafield>
+
+	<marc:datafield referentialName="EXE:STATUT" referentialType="TABLE" tag="STATUT">01</marc:datafield>
+
+	<marc:datafield tag="TRAITEMENT">PARTIEL911</marc:datafield>
+
+	<marc:datafield tag="NBPRETAN">0</marc:datafield>
+
+	<marc:datafield tag="PRETCUM">0</marc:datafield>
+
+	<marc:datafield tag="NBRESAAN">0</marc:datafield>
+
+	<marc:datafield tag="RESACUM">0</marc:datafield>
+
+	<marc:datafield tag="LIBREGLE">Document</marc:datafield>
+
+	<marc:datafield tag="NBABO">0</marc:datafield>
+
+	<marc:datafield tag="IDENTIFIANT">807429</marc:datafield>
+
+	<marc:datafield referentialName="UNI:TYPE-DE-NOTICE" referentialType="TABLE" tag="TYPEDENOTICE">MPA1</marc:datafield>
+
+	<marc:datafield tag="ACTIF">1</marc:datafield>
+
+	<marc:datafield tag="NBFILLE">14</marc:datafield>
+
+	<marc:datafield tag="TYPEDENOTICELIB">Manifestation parlée audio CMPP</marc:datafield>
+
+	<marc:datafield tag="TRAITLIB">Import partile des 911</marc:datafield>
+
+	<marc:datafield tag="IDORIGINE">807429</marc:datafield>
+
+	<marc:datafield tag="RESERVE">0</marc:datafield>
+
+	<marc:datafield tag="NBRES">0</marc:datafield>
+
+	<marc:datafield tag="MMNBDOCPRIMAIRE">0</marc:datafield>
+
+	<marc:datafield tag="MMESTVERSIONNUM">0</marc:datafield>
+
+	<marc:datafield tag="DCENRICHIE">0</marc:datafield>
+
+	<marc:datafield tag="IDEXTERNE_IDENTIFIANTTRADUCTION"/>
+
+	<marc:datafield tag="IDEXTERNE_IDENTIFIANTTRADUCTION_NBNOTICES">0</marc:datafield>
+
+	<marc:datafield tag="IDEXTERNE_IDENTIFIANTEAD"/>
+
+	<marc:datafield tag="IDEXTERNE_IDENTIFIANTEAD_NBNOTICES">0</marc:datafield>
+
+	<marc:datafield tag="ESTSURNOTICE">0</marc:datafield>
+
+	<marc:datafield tag="RESADATECREA"> </marc:datafield>
+
+	<marc:datafield tag="NBPRETAN-1">0</marc:datafield>
+
+	<marc:datafield tag="NBPRETAN-2">0</marc:datafield>
+
+	<marc:datafield tag="NBPRETAN-3">0</marc:datafield>
+
+	<marc:datafield tag="NBRESAAN-1">0</marc:datafield>
+
+	<marc:datafield tag="NBRESAAN-2">0</marc:datafield>
+
+	<marc:datafield tag="NBRESAAN-3">0</marc:datafield>
+
+	<marc:datafield tag="SYSBASE">SYRACUSE</marc:datafield>
+
+	<marc:datafield tag="ISSUBULLETINAGE">0</marc:datafield>
+
+	<marc:datafield tag="MODDATE">17/02/2025 15:54:03</marc:datafield>
+
+	<marc:datafield tag="MODPOSTE">J-NAVAS</marc:datafield>
+
+	<marc:datafield tag="MODUTIL">ADMINEXPLOITATION</marc:datafield>
+
+	<marc:datafield tag="MODPRG">RECTIFFONDSRest</marc:datafield>
+
+	<marc:datafield tag="CRYSTALPATHMODIF">crystal://EXPLOITATION/user=dedf46600b4ee4c8f590c648a15b9ca4</marc:datafield>
+
+	<marc:datafield tag="MODCRYSTALPATH">crystal://EXPLOITATION/user=dedf46600b4ee4c8f590c648a15b9ca4</marc:datafield>
+
+</marc:record>
+

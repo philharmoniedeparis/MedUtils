@@ -11,7 +11,7 @@ app.MapGet("/GetRecordFromIdDocnum/{idDocnum}", async (string idDocnum) =>
     using var httpClient = new HttpClient();
     try
     {
-        string apiUrl = "https://sigb.philharmoniedeparis.fr/sdk/documentService.svc/AdvancedFindDocuments";
+        string apiUrl = "https://sigb.philharmoniedeparis.fr/sdk/documentService.svc/FindDocuments";
 
         var requestData = new
         {
@@ -31,17 +31,20 @@ app.MapGet("/GetRecordFromIdDocnum/{idDocnum}", async (string idDocnum) =>
         var response = await httpClient.PostAsync(apiUrl, content);
         response.EnsureSuccessStatusCode();
 
+
+
         var jsonResponse = await response.Content.ReadAsStringAsync();
+
+        //return Results.Content(jsonResponse, "application/json");
+
         // Parse the JSON to extract just the XML content
         using var jsonDoc = System.Text.Json.JsonDocument.Parse(jsonResponse);
         var root = jsonDoc.RootElement;
 
-        if (root.TryGetProperty("d", out var d) &&
-            d.TryGetProperty("results", out var results) &&
-            results.GetArrayLength() > 0)
+        if (root.TryGetProperty("d", out var d))
         {
             // Get the XML string from the first result
-            string xmlData = results[0].GetString();
+            string xmlData = d.GetString();
 
             // Return just the XML content
             return Results.Content(xmlData, "application/xml");
@@ -49,8 +52,6 @@ app.MapGet("/GetRecordFromIdDocnum/{idDocnum}", async (string idDocnum) =>
 
         return Results.NotFound("No XML data found in the response");
 
-        // If you want to return the entire JSON response instead, uncomment the line below
-        //return Results.Content(jsonResponse, "application/json");
     }
     catch (HttpRequestException ex)
     {
