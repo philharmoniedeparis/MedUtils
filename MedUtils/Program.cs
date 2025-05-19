@@ -1,7 +1,9 @@
+using MARC;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello les savoirs");
 string accessKey = "85kxBW8Lm2vQi9";
 
 //Return Complete MARC Record From IdDocnum 
@@ -44,10 +46,23 @@ app.MapGet("/GetRecordFromIdDocnum/{idDocnum}", async (string idDocnum) =>
         if (root.TryGetProperty("d", out var d))
         {
             // Get the XML string from the first result
-            string xmlData = d.GetString();
+            string xmlData = d.ToString();
+            if (string.IsNullOrEmpty(xmlData))
+            {
+                return Results.NotFound("No XML data found in the response");
+            }
+            
+            FileMARCXML marcRecord = new FileMARCXML(xmlData);
+            
+            //return Results.Content(marcRecord.RawSource "application/xml");
+
+            Record firstRecord = marcRecord[0];
+            Field idSyracuseField = firstRecord["001"];
+
+            string idSyracuse = idSyracuseField.FormatField();
 
             // Return just the XML content
-            return Results.Content(xmlData, "application/xml");
+            //return Results.Content(xmlData, "application/xml");
         }
 
         return Results.NotFound("No XML data found in the response");

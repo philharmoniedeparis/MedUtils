@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\CSharp_MARC\CSharp_MARC\CSharp_MARC.csproj" />
+  </ItemGroup>
+
 </Project>
