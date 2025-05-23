@@ -7,19 +7,24 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello les savoirs");
 
+app.MapGet("/GetRecordFromId/{id}", async (string id) =>
+{
+    string xmlData = await SyracuseTools.getRecordFromId(id);
+    return Results.Content(xmlData, "application/xml");
+});
+
 app.MapGet("/GetRecordFromIdDocnum/{idDocnum}", async (string idDocnum) =>
 {
-    string xmlData = await Tools.getSyracuseRecordFromIdDocnum(idDocnum);
+    string xmlData = await SyracuseTools.getRecordFromIdDocnum(idDocnum);
     return Results.Content(xmlData, "application/xml");
 });
 
-app.MapGet("/GetRecordFromIdSyracuse/{idSyracuse}", async (string idSyracuse) =>
+
+app.MapGet("/GetValuesFromRecord/{id}/{field}/{subfield}", async (string id, string field, char subfield) =>
 {
-    string xmlData = await Tools.getSyracuseRecordFromId(idSyracuse);
-    return Results.Content(xmlData, "application/xml");
+    List<string> result = await MarcDataField.getValues(id, field, subfield);
+    return Results.Json(result);
 });
-
-
 app.Run();
 
 
