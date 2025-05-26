@@ -1,6 +1,6 @@
 ﻿using MARC;
 
-namespace MedUtils.Tools
+namespace MedUtils.Features.Syracuse
 {
     public class SyracuseTools
     {
@@ -70,6 +70,7 @@ namespace MedUtils.Tools
 
             return idSyracuse.Substring(index);
         }
+
         public static async Task<string> getRecordFromId(string idSyracuse)
         {
             string xmlRecord = "";
@@ -109,7 +110,7 @@ namespace MedUtils.Tools
 
     public class MarcDataField
     {
-        
+        /// Get values from a MARC XML record based on idSyracuse, field and subfield.
         public static async Task<List<string>> getValues(string idSyracuse, string myField, char mySubField)
         {
             string xmldata = await SyracuseTools.getRecordFromId(idSyracuse);
@@ -117,7 +118,7 @@ namespace MedUtils.Tools
             List<string> values = getValues(xmlMarcRecords, myField, mySubField);
             return values;
         }
-
+        /// Get values from a MARC XML record based on the MARC XML itself, field and subfield
         public static List<string> getValues(FileMARCXML xmlMarcRecords, string myField, char mySubField)
         {
             // Get the first record from the list. We do not need to loop through all records for the moment.
@@ -127,6 +128,55 @@ namespace MedUtils.Tools
             foreach (DataField dataField in fields) {
                 foreach (Subfield subfield in dataField.Subfields) { 
                 if (subfield.Code == mySubField)
+                    {
+                        values.Add(subfield.Data);
+                    }
+                }
+            }
+            return values;
+        }
+        /// Get values from a MARC XML record based on idSyracuse and field with '$' (e.g. "100$a")
+        public static async Task<List<string>> getValues(string idSyracuse, string myFieldAndSubfield)
+        {
+            string xmldata = await SyracuseTools.getRecordFromId(idSyracuse);
+
+            if (string.IsNullOrEmpty(myFieldAndSubfield) || !myFieldAndSubfield.Contains('$'))
+                throw new ArgumentException("myFieldAndSubfield must be in the format 'field$subfield'");
+
+            var parts = myFieldAndSubfield.Split('$');
+            if (parts.Length != 2 || string.IsNullOrEmpty(parts[0]) || parts[1].Length != 1)
+                throw new ArgumentException("myFieldAndSubfield must be in the format 'field$subfield'");
+
+            string myField = parts[0];
+            char mySubField = parts[1][0];
+
+            FileMARCXML xmlMarcRecords = new FileMARCXML(xmldata);
+            List<string> values = getValues(xmlMarcRecords, myField, mySubField);
+            return values;
+        }
+        /// Get values from a MARC XML record based on the MARC XML itself and field with '$' (e.g. "100$a")
+        public static List<string> getValues(FileMARCXML xmlMarcRecords, string myFieldAndSubfield)
+        {
+
+
+            if (string.IsNullOrEmpty(myFieldAndSubfield) || !myFieldAndSubfield.Contains('$'))
+                throw new ArgumentException("myFieldAndSubfield must be in the format 'field$subfield'");
+
+            var parts = myFieldAndSubfield.Split('$');
+            if (parts.Length != 2 || string.IsNullOrEmpty(parts[0]) || parts[1].Length != 1)
+                throw new ArgumentException("myFieldAndSubfield must be in the format 'field$subfield'");
+
+            string myField = parts[0];
+            char mySubField = parts[1][0];
+
+            Record xmlRecord = xmlMarcRecords[0];
+            List<string> values = new List<string>();
+            List<Field> fields = xmlRecord.GetFields(myField);
+            foreach (DataField dataField in fields)
+            {
+                foreach (Subfield subfield in dataField.Subfields)
+                {
+                    if (subfield.Code == mySubField)
                     {
                         values.Add(subfield.Data);
                     }
