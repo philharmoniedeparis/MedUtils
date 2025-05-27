@@ -4,12 +4,16 @@
     {
         public static void MapSyracuseEndpoints(this WebApplication app)
         {
-            var group = app.MapGroup("/Syracuse/query");
+            var BasicGroup = app.MapGroup("/Syracuse/query");
+            var AdvancedGroup = app.MapGroup("/Syracuse/advancedQuery");
 
-            group.MapGet("/id/{id}", SyracuseHandlers.GetRecordFromId);
-            group.MapGet("/idDocnum/{idDocnum}", SyracuseHandlers.GetRecordFromIdDocnum);
-            group.MapGet("/id/field/subfield/{id}/{field}/{subfield}", SyracuseHandlers.GetValuesFromRecord);
-            group.MapGet("/id/xxx$x/{id}/{fieldandsubfield}", SyracuseHandlers.GetValuesFromRecordWithDollar);
+            BasicGroup.MapGet("/id/{id}", SyracuseHandlers.GetRecordFromId);
+            BasicGroup.MapGet("/idDocnum/{idDocnum}", SyracuseHandlers.GetRecordFromIdDocnum);
+            BasicGroup.MapGet("/id/field/subfield/{id}/{field}/{subfield}", SyracuseHandlers.GetValuesFromRecord);
+            BasicGroup.MapGet("/id/xxx$x/{id}/{fieldandsubfield}", SyracuseHandlers.GetValuesFromRecordWithDollar);
+
+            AdvancedGroup.MapGet("/id/{id}", SyracuseHandlers.GetAdvancedRecordFromId);
+            AdvancedGroup.MapGet("/getNoticeType/id/{id}", SyracuseHandlers.GetNoticeTypeFromId);
         }
     }
 }

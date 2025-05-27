@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Features\test.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Features\test.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\CSharp_MARC\CSharp_MARC\CSharp_MARC.csproj" />
   </ItemGroup>
 

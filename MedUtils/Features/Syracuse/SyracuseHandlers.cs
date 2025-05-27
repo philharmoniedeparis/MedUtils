@@ -24,5 +24,17 @@
             List<string> result = await MarcDataField.getValues(id, fieldandsubfield);
             return Results.Json(result);
         }
+        //GetAdvancedRecordFromId
+        public static async Task<IResult> GetAdvancedRecordFromId(string id)
+        {
+            string xmlData = await SyracuseTools.getAdvancedRecordFromId(id);
+            return Results.Content(xmlData, "application/xml");
+        }
+        //GetNoticeTypeFromId
+        public static async Task<IResult> GetNoticeTypeFromId(string id)
+        {
+            string noticeType = await SyracuseTools.GetNoticeTypeFromId(id);
+            return Results.Json(noticeType);
+        }
     }
 }
