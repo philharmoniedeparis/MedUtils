@@ -5,13 +5,25 @@ namespace MedUtils.Features.Syracuse
 {
     public class SyracuseTools
     {
+
+        private static IConfiguration configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json")
+        .AddEnvironmentVariables()
+        .Build();
+
+        private static IConfiguration SyracuseConfig = configuration.GetSection("Syracuse");
+
         //Parameters for Syracuse API
         public static class SyracuseParams
         {
-            public const string apiUrl = "https://sigb.philharmoniedeparis.fr/sdk/documentService.svc/";
-            public const string accessKey = "85kxBW8Lm2vQi9";
+            //public const string apiUrl = "https://sigb.philharmoniedeparis.fr/sdk/documentService.svc/";
+            //public const string accessKey = "85kxBW8Lm2vQi9";
+            public static string? accessKey = SyracuseConfig.GetValue<string>("AccessKey");
+            public static string? apiUrl = SyracuseConfig.GetValue<string>("APIUrl");
         }
         //Request to Syracuse API
+
+
         public static async Task<string> postRequest(object requestData, string Url)
         {
             using var httpClient = new HttpClient();
