@@ -3,13 +3,22 @@ using System.Xml.Linq;
 
 namespace MedUtils.Features.Syracuse
 {
+
     public class SyracuseTools
     {
         //Parameters for Syracuse API
+
+        private static IConfiguration configuration = new ConfigurationBuilder()
+            .AddEnvironmentVariables()
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+
         public static class SyracuseParams
         {
-            public const string apiUrl = "https://sigb.philharmoniedeparis.fr/sdk/documentService.svc/";
-            public const string accessKey = "85kxBW8Lm2vQi9";
+
+            static IConfiguration conf = configuration.GetSection("Syracuse");
+            public static string? apiUrl = conf["apiUrl"];
+            public static string? accessKey = conf["accessKey"];
         }
         //Request to Syracuse API
         public static async Task<string> postRequest(object requestData, string Url)
@@ -56,26 +65,7 @@ namespace MedUtils.Features.Syracuse
                 return "No 'd' property found in the response";
             }
         }
-        // Extract XML from JSON response from Syracuse API AdvancedFindDocuments
-        public static string AvancedExtractXMLFromJson(string jsonResponse)
-        {
-            using var jsonDoc = System.Text.Json.JsonDocument.Parse(jsonResponse);
-            var root = jsonDoc.RootElement;
-            if (root.TryGetProperty("d", out var d) && d.TryGetProperty("results", out var results))
-            {
-                // Get the XML string from the first result
-                string xmlData = results[0].ToString();
-                if (string.IsNullOrEmpty(xmlData))
-                {
-                    return "No XML data found in the response";
-                }
-                return xmlData;
-            }
-            else
-            {
-                return "No results properties found in the response from Syracuse";
-            }
-        }
+
         // Clean Syracuse ID by removing leading zeros
         public static string CleanSyracuseId(string idSyracuse)
         {
@@ -93,38 +83,7 @@ namespace MedUtils.Features.Syracuse
 
             return idSyracuse.Substring(index);
         }
-        // Get noticeType from an XML record (from AdvancedFindDocuments)
-        public static string GetNoticeTypeFromXML(string xmlRecord)
 
-        {
-            if (string.IsNullOrEmpty(xmlRecord))
-            {
-                return "No XML record provided";
-            }
-            try
-            {
-                XDocument doc = XDocument.Parse(xmlRecord);
-                string? noticeType = doc.Root?.Attribute("noticeType")?.Value;
-                if (noticeType != null)
-                {
-                    return noticeType;
-                }
-                else
-                {
-                    return "No noticeType found in the XML record";
-                }
-            }
-            catch (Exception ex)
-            {
-                return $"Error parsing XML: {ex.Message}";
-            }
-        }
-        // Get noticeType by IdSyracuse (using AdvancedFindDocuments)
-        public static async Task<string> GetNoticeTypeFromId(string idSyracuse)
-        {
-            string xmlRecord = await getAdvancedRecordFromId(idSyracuse);
-            return GetNoticeTypeFromXML(xmlRecord);
-        } 
         // Get a record from Syracuse by Id
         public static async Task<string> getRecordFromId(string idSyracuse)
         {
@@ -161,6 +120,66 @@ namespace MedUtils.Features.Syracuse
             return xmlRecord;
   
         }
+
+        //Get IdDocum from Syracuse by Id
+        public static async Task<string> getIdDocnumFromId(string idSyracuse)
+        {
+            List<string> IdDocNums = await MarcDataField.getValues(idSyracuse, "856", 'b');
+            if (IdDocNums.Count > 0)
+            {
+                return IdDocNums.First();
+            }
+            else
+            {
+                return "";
+            }
+        }
+        //Get IdDocnum from xmlRecord 
+        public static string getIdDocnumFromXML(FileMARCXML xmlMarcRecords)
+        {
+            List<string> IdDocNums = MarcDataField.getValues(xmlMarcRecords, "856", 'b');
+            if (IdDocNums.Count > 0)
+            {
+                return IdDocNums.First();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        //Get Id from IdDocnum
+        public static async Task<string> getIdFromIdDocnum(string idDocnum)
+        {
+            string xmlRecord = await getRecordFromIdDocnum(idDocnum);
+            FileMARCXML xmlMarcRecords = new FileMARCXML(xmlRecord);
+            List<string> Ids = MarcDataField.getValues(xmlMarcRecords, "001", 'a');
+            if (Ids.Count > 0)
+            {
+                return Ids.First();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        // Get Id from xmlRecord
+        public static string getIdFromXML(FileMARCXML xmlMarcRecords)
+        {
+            List<string> Ids = MarcDataField.getValues(xmlMarcRecords, "001", 'a');
+            if (Ids.Count > 0)
+            {
+                return Ids.First();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        //AdvancedFindDocuments
+
         // Get from Syracuse by Id Using AdvancedFindDocuments
         public static async Task<string> getAdvancedRecordFromId(string idSyracuse)
         {
@@ -182,8 +201,60 @@ namespace MedUtils.Features.Syracuse
 
         }
 
+        // Extract XML from JSON response (from Syracuse API AdvancedFindDocuments)
+        public static string AvancedExtractXMLFromJson(string jsonResponse)
+        {
+            using var jsonDoc = System.Text.Json.JsonDocument.Parse(jsonResponse);
+            var root = jsonDoc.RootElement;
+            if (root.TryGetProperty("d", out var d) && d.TryGetProperty("results", out var results))
+            {
+                // Get the XML string from the first result
+                string xmlData = results[0].ToString();
+                if (string.IsNullOrEmpty(xmlData))
+                {
+                    return "No XML data found in the response";
+                }
+                return xmlData;
+            }
+            else
+            {
+                return "No results properties found in the response from Syracuse";
+            }
+        }
+        // Get noticeType from an XML record (from Syracuse API AdvancedFindDocuments)
+        public static string GetNoticeTypeFromXML(string xmlRecord)
 
+        {
+            if (string.IsNullOrEmpty(xmlRecord))
+            {
+                return "No XML record provided";
+            }
+            try
+            {
+                XDocument doc = XDocument.Parse(xmlRecord);
+                string? noticeType = doc.Root?.Attribute("noticeType")?.Value;
+                if (noticeType != null)
+                {
+                    return noticeType;
+                }
+                else
+                {
+                    return "No noticeType found in the XML record";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error parsing XML: {ex.Message}";
+            }
+        }
+        // Get noticeType by IdSyracuse (from Syracuse API AdvancedFindDocuments)
+        public static async Task<string> GetNoticeTypeFromId(string idSyracuse)
+        {
+            string xmlRecord = await getAdvancedRecordFromId(idSyracuse);
+            return GetNoticeTypeFromXML(xmlRecord);
+        }
     }
+
 
     public class MarcDataField
     {
