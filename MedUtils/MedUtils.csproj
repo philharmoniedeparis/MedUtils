@@ -15,7 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CSharp_MARC\CSharp_MARC\CSharp_MARC.csproj" />
+    <Reference Include="CSharp_MARC">
+      <HintPath>bin\CSharp_MARC.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
