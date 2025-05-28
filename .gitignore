@@ -365,3 +365,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /MedUtils/appsettings.json
 /MedUtils/appsettings.Development.json
+/MedUtils.sln
