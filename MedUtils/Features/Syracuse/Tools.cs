@@ -7,6 +7,7 @@ namespace MedUtils.Features.Syracuse
     public class SyracuseTools
     {
         //Parameters for Syracuse API
+        //test
 
         private static IConfiguration configuration = new ConfigurationBuilder()
             .AddEnvironmentVariables()
