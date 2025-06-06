@@ -1,3 +1,4 @@
+using MedUtils.Features.IAConferences;
 using MedUtils.Features.Syracuse;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ app.MapGet("/", () => "Hello les savoirs");
 
 // Register all Syracuse endpoints
 app.MapSyracuseEndpoints();
+app.MapIAConferencesEndPoints();
 
 app.Run();
 

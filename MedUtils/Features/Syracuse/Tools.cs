@@ -254,6 +254,23 @@ namespace MedUtils.Features.Syracuse
             string xmlRecord = await getAdvancedRecordFromId(idSyracuse);
             return GetNoticeTypeFromXML(xmlRecord);
         }
+
+        // Check if Notice Has Childs
+        public static bool RecordHasChilds(FileMARCXML xmlRecord)
+        {
+            bool hasChilds = false;
+            List<string> childs =  MarcDataField.getValues(xmlRecord, "959$3");
+            if (childs.Count > 0) {
+                hasChilds = true;
+            }
+            return hasChilds;
+        }
+        // Get list of Childs Ids
+        public static List<string> getRecordChilds(FileMARCXML xmlRecord)
+        {
+            List<string> childs = MarcDataField.getValues(xmlRecord, "959$3");
+            return childs;
+        }
     }
 
 
