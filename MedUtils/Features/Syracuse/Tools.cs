@@ -1,4 +1,6 @@
 ﻿using MARC;
+using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Xml.Linq;
 
 namespace MedUtils.Features.Syracuse
@@ -132,7 +134,15 @@ namespace MedUtils.Features.Syracuse
             }
             else
             {
-                return "";
+                IdDocNums = await MarcDataField.getValues(idSyracuse, "856", 'd');
+                if (IdDocNums.Count > 0) 
+                { 
+                    return IdDocNums.First(); 
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
         //Get IdDocnum from xmlRecord 
@@ -145,7 +155,15 @@ namespace MedUtils.Features.Syracuse
             }
             else
             {
-                return "";
+                IdDocNums = MarcDataField.getValues(xmlMarcRecords, "856", 'd');
+                if (IdDocNums.Count > 0)
+                {
+                    return IdDocNums.First();
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
 
@@ -260,16 +278,55 @@ namespace MedUtils.Features.Syracuse
         {
             bool hasChilds = false;
             List<string> childs =  MarcDataField.getValues(xmlRecord, "959$3");
-            if (childs.Count > 0) {
+            if ((childs.Count > 0) && (childs.First() != ""))  {
                 hasChilds = true;
             }
             return hasChilds;
         }
         // Get list of Childs Ids
-        public static List<string> getRecordChilds(FileMARCXML xmlRecord)
+        public static List<string> getChildsIds(FileMARCXML xmlRecord)
         {
-            List<string> childs = MarcDataField.getValues(xmlRecord, "959$3");
+            List<string> childs = new List<string>();
+            if (RecordHasChilds(xmlRecord))
+            {
+                childs = MarcDataField.getValues(xmlRecord, "959$3");
+            }
             return childs;
+        }
+        public static async Task<List<string>> getChildsAndSubChilds(FileMARCXML xmlRecord)
+        {
+            List<string> AllChilds = new List<string>();
+            AllChilds.Add(getIdFromXML(xmlRecord));
+            if (RecordHasChilds(xmlRecord))
+            {
+                List<string> Childs = new List<string>();
+                Childs = getChildsIds(xmlRecord);
+                foreach (string child in Childs)
+                {
+                    if (!string.IsNullOrEmpty(child))
+                    {
+                        AllChilds.Add(child);
+                    }
+                    string SubRecord = await getRecordFromId(child);
+                    if (SubRecord != null)
+                    {
+                        FileMARCXML xmlSubRecord = new FileMARCXML(SubRecord);
+                        if (RecordHasChilds(xmlSubRecord)) 
+                        {
+                            List<string> subChilds = getChildsIds(xmlSubRecord);
+                            foreach (string subchild in subChilds)
+                            {
+                                if (!string.IsNullOrEmpty(subchild))
+                                {
+                                    AllChilds.Add(subchild);
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            return AllChilds;
         }
     }
 
@@ -288,9 +345,21 @@ namespace MedUtils.Features.Syracuse
         public static List<string> getValues(FileMARCXML xmlMarcRecords, string myField, char mySubField)
         {
             // Get the first record from the list. We do not need to loop through all records for the moment.
+            
             Record xmlRecord = xmlMarcRecords[0];
             List<string> values = new List<string>();
             List<Field> fields = xmlRecord.GetFields(myField);
+            if (fields.Count == 0)
+            {
+                values.Add(""); // Add empty string if no fields found
+                return values; 
+            }
+            if ((myField == "001") || (myField == "01") || (myField == "1")) //We are looking for the Id of the record
+            {
+                ControlField controlField = (ControlField)fields[0];
+                values.Add(controlField.Data);
+                return values;
+            }
             foreach (DataField dataField in fields) {
                 foreach (Subfield subfield in dataField.Subfields) { 
                 if (subfield.Code == mySubField)
@@ -348,6 +417,7 @@ namespace MedUtils.Features.Syracuse
                     }
                 }
             }
+            if (values.Count == 0) values.Add("");
             return values;
         }
     }

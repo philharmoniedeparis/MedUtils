@@ -9,6 +9,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CSharp_MARC\CSharp_MARC\CSharp_MARC.csproj" />
+    <ProjectReference Include="..\..\FFMpegCore\FFMpegCore\FFMpegCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Medias\tmp\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
   </ItemGroup>
 
 </Project>
