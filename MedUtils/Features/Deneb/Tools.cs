@@ -121,7 +121,7 @@ namespace MedUtils.Features.Deneb
 
         private class testDav
         {
-            string message = "test";
+            string message = "c'est mon test";
         }
 
     }
