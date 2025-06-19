@@ -109,6 +109,10 @@ namespace MedUtils.Features.Deneb
             }
         }
 
+        private class testrod
+        {
+            string test = "test";
+        }
         private class ObjToken
         {
             public string? token { get; set; }
