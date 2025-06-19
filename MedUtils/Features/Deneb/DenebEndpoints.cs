@@ -6,8 +6,8 @@
         {
             var BasicGroup = app.MapGroup("/Deneb");
            
-            //BasicGroup.MapGet("/event/{id}", DenebHandlers.GetEventFromId);
             BasicGroup.MapGet("/token", DenebHandlers.GetToken);
+            BasicGroup.MapGet("/event/{id}", DenebHandlers.GetEventFromId);
 
         }
     }

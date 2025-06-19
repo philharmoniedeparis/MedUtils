@@ -364,6 +364,3 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/MedUtils/appsettings.json
-/MedUtils/appsettings.Development.json
-/MedUtils.sln
