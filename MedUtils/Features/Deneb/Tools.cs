@@ -122,6 +122,7 @@ namespace MedUtils.Features.Deneb
         private class testDav
         {
             string message = "test";
+            string test = "toto";
         }
 
     }
