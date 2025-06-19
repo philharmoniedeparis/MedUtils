@@ -114,5 +114,11 @@ namespace MedUtils.Features.Deneb
             public string? token { get; set; }
         }
 
+
+        private class testDav
+        {
+            string message = "test";
+        }
+
     }
 }
