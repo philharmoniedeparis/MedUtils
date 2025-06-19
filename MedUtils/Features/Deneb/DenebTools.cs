@@ -109,22 +109,9 @@ namespace MedUtils.Features.Deneb
             }
         }
 
-        private class testrod
-        {
-            string test = "test";
-        }
         private class ObjToken
         {
             public string? token { get; set; }
-        }
-
-
-        private class testDav
-        {
-            string message = "c'est mon test";
-            string message3 = "test";
-            string message2 = "test";
-            string test = "toto";
         }
 
     }
