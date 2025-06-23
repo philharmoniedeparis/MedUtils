@@ -5,7 +5,7 @@
       
         public static async Task<IResult> GetToken()
         {
-            string jsonData = DenebTools.GetToken();
+            string jsonData = await DenebTools.GetToken();
             return Results.Content(jsonData, "application/json");
 
         //    string jsonData = "{\"token\":\"toto\"}";

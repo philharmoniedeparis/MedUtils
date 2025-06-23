@@ -9,10 +9,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\CSharp_MARC\CSharp_MARC\CSharp_MARC.csproj" />
-    <ProjectReference Include="..\..\FFMpegCore\FFMpegCore\FFMpegCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FFMpegCore" Version="5.2.0" />
     <PackageReference Include="NAudio" Version="2.2.1" />
   </ItemGroup>
 

@@ -19,7 +19,7 @@ namespace MedUtils.Features.Medias
             public static HashSet<string> Prefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
         }
 
-        /// test 
+        
         /// <summary>
         /// Get Media Path from IdDocnum
         /// </summary>
@@ -96,8 +96,8 @@ namespace MedUtils.Features.Medias
         /// returns></returns>
         public static async Task<double> GetFileDuration(string filePath)
         {
-            GlobalFFOptions.Configure(options => options.BinaryFolder = MediaParams.ffmpegBinPath);
-            var FFMpegMediaInfo = await FFProbe.AnalyseAsync(filePath);
+           GlobalFFOptions.Configure(options => options.BinaryFolder = MediaParams.ffmpegBinPath);
+           var FFMpegMediaInfo = await FFProbe.AnalyseAsync(filePath);
            return Math.Floor((double)FFMpegMediaInfo.Duration.TotalMicroseconds / 1000000);
         }
         /// <summary>
