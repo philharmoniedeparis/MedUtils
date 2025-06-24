@@ -15,7 +15,10 @@ namespace MedUtils.Features.Medias
             public static string ffmpegTmpPath = "Features\\Medias\\tmp";
             public static string UrlCDNimages = "https://cdn.philharmoniedeparis.fr/http/images/poster/";
             public static string StreamDomainName = "https://stream.philharmoniedeparis.fr/conferences/_definst_/mp3:";
-            public static string mediaPath = "Z:\\conferences\\";
+            //public static string mediaPath = "Z:\\conferences\\";
+            public static string mediaPath = "\\\\10.0.2.1\\conferences\\";
+            //public static string mediaPath = "C:\\test\\";
+            
             public static HashSet<string> Prefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
         }
 
@@ -48,6 +51,38 @@ namespace MedUtils.Features.Medias
             }
             return MediaPath;
         }
+
+        public static string testMediaPath(string RootIdDocNum)
+        {
+
+            string DocNumPrefix = RootIdDocNum[..4];
+            var KnownPrefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
+            if (!(MediaParams.Prefixes.Contains(DocNumPrefix)))
+            {
+                DocNumPrefix = "XXVI";
+            }
+            string rootFolder = Path.Combine(MediaParams.mediaPath, DocNumPrefix, RootIdDocNum);
+            var allowedExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                ".mp3", ".mp4"
+            };
+            var files = new List<string>();
+            
+            files.AddRange(
+            Directory.GetFiles(rootFolder)
+                    .Where(f => allowedExtensions.Contains(Path.GetExtension(f)))
+);
+
+            // Recursively add files from subdirectories
+            foreach (var dir in Directory.GetDirectories(rootFolder))
+            {
+                files.AddRange(GetAllMediaFiles(dir));
+            }
+
+            return rootFolder;
+        }
+
+
 
         /// <summary>
         /// Get a list of all media files (mp3, mp4) for a specified idDocnum in the form XXXX00000100, including _CC, _IA, _E files.
@@ -180,7 +215,7 @@ namespace MedUtils.Features.Medias
         public static string GetStreamUrl(string path)
         {
             string UrlStream = path.Replace("\\", "/");
-            UrlStream = UrlStream.Substring(15);
+            UrlStream = UrlStream.Substring(23);
             return MediaParams.StreamDomainName + UrlStream + "/playlist.m3u8";
         }
     }

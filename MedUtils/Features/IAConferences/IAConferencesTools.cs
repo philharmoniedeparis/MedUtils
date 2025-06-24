@@ -52,7 +52,8 @@ namespace MedUtils.Features.IAConferences
                 {
                     if (mediaFiles.Count != 1) 
                     {
-                        mediaInfos.path = "something went wrong, no childs but multiple or no media files found";
+                        mediaInfos.path = "something went wrong, no childs but multiple or no media files found, mediaInfos.count = " + mediaFiles.Count.ToString();
+                        mediaInfos.image = "Current MediaPath : " + MediaTools.testMediaPath(mediaInfos.s856b);
                     }
                     else
                     {
@@ -109,7 +110,7 @@ namespace MedUtils.Features.IAConferences
                     mediaInfos.idDocNum = localIdDocNum[..11] + "00"; //Change from something like "CMAU000157001#02-10" to "CMAU000157000" 
                 }
                 List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.idDocNum);
-                string outputFilePath = mediaFiles[0].Substring(0,34) + mediaInfos.idDocNum + "_" + idSyracuse + "_IA.mp3";
+                string outputFilePath = mediaFiles[0].Substring(0,42) + mediaInfos.idDocNum + "_" + idSyracuse + "_IA.mp3";
 
                 if (SyracuseTools.RecordHasChilds(fileMARCXML))
                 {
