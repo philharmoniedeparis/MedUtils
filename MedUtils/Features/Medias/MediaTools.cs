@@ -1,8 +1,7 @@
 ﻿using FFMpegCore;
-using FFMpegCore.Enums;
-using Microsoft.AspNetCore.Components.Forms;
-using NAudio.MediaFoundation;
-using NAudio.Wave;
+using MedUtils.Features.IAConferences;
+using System.Globalization;
+using static MedUtils.Features.IAConferences.IAConferencesTools;
 
 namespace MedUtils.Features.Medias
 {
@@ -15,14 +14,98 @@ namespace MedUtils.Features.Medias
             public static string ffmpegTmpPath = "Features\\Medias\\tmp";
             public static string UrlCDNimages = "https://cdn.philharmoniedeparis.fr/http/images/poster/";
             public static string StreamDomainName = "https://stream.philharmoniedeparis.fr/conferences/_definst_/mp3:";
-            //public static string mediaPath = "Z:\\conferences\\";
             public static string mediaPath = "\\\\10.0.2.1\\conferences\\";
-            //public static string mediaPath = "C:\\test\\";
-            
+            public static string APIUrlForMedia = "https://otoplayer.philharmoniedeparis.fr/fr/conference/";
+
             public static HashSet<string> Prefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
         }
 
-        
+
+        ///summary>
+        ///Generic method to get data from an API using HttpClient.
+        ///</summary>
+        ///<param name="input"></param>
+        ///<param name="Url"></param>
+        ///<returns></returns>
+        ///
+        public static async Task<string> getFromAPI(string input, string Url)
+        {
+            if (string.IsNullOrEmpty(input)) return string.Empty;
+            if (string.IsNullOrEmpty(Url)) return string.Empty;
+            using HttpClient client = new HttpClient();
+            try
+            {
+                var response = await client.GetAsync(Url + input);
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error fetching data: {ex.Message}");
+                return string.Empty;
+            }
+        }
+        public static double ParseDoubleFromJson(System.Text.Json.JsonDocument JsonInput, string element) 
+        { 
+            double result = 0;
+            var root = JsonInput.RootElement;
+            if (root.TryGetProperty(element, out var el))
+            {
+                // Get the XML string from the first result
+                string elem = el.ToString();
+                if (string.IsNullOrEmpty(elem))
+                {
+                    result = 0;
+                }
+                else
+                {
+                    elem = elem.Replace(",", ".");
+                    if (!double.TryParse(elem, NumberStyles.Any, CultureInfo.InvariantCulture, out double parsedElem))
+                    {
+                        parsedElem = 0;
+                    }
+                    else
+                    {
+                        result = parsedElem;
+                    }
+                }
+
+            }
+            else
+            {
+                result = 0;
+            }
+
+            return result;
+        }
+
+
+        ///summary>
+        ///Get Video Time codes from IDDocnum using Otoplayer API.
+        ///</summary>
+        ///<param name="idDocNum"></param>
+        ///<returns></returns>
+        ///
+        public static async Task<IAConferencesTools.VideoTCInfos> GetVideoTCInfos(string idSyracuse)
+        {
+            IAConferencesTools.VideoTCInfos videoTCInfos = new IAConferencesTools.VideoTCInfos();
+            if (string.IsNullOrEmpty(idSyracuse)) return videoTCInfos;
+            var jsonResponse = await getFromAPI(idSyracuse, MediaParams.APIUrlForMedia);
+            if (string.IsNullOrEmpty(jsonResponse)) return videoTCInfos;
+            using var jsonDoc = System.Text.Json.JsonDocument.Parse(jsonResponse);
+            var root = jsonDoc.RootElement;
+            videoTCInfos.duration = ParseDoubleFromJson(jsonDoc, "duration");
+            videoTCInfos.tcin = ParseDoubleFromJson(jsonDoc, "tcin");
+            videoTCInfos.tcout = ParseDoubleFromJson(jsonDoc, "tcout");
+            return videoTCInfos;
+        }
+
         /// <summary>
         /// Get Media Path from IdDocnum
         /// </summary>
@@ -51,38 +134,6 @@ namespace MedUtils.Features.Medias
             }
             return MediaPath;
         }
-
-        public static string testMediaPath(string RootIdDocNum)
-        {
-
-            string DocNumPrefix = RootIdDocNum[..4];
-            var KnownPrefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
-            if (!(MediaParams.Prefixes.Contains(DocNumPrefix)))
-            {
-                DocNumPrefix = "XXVI";
-            }
-            string rootFolder = Path.Combine(MediaParams.mediaPath, DocNumPrefix, RootIdDocNum);
-            var allowedExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-            {
-                ".mp3", ".mp4"
-            };
-            var files = new List<string>();
-            
-            files.AddRange(
-            Directory.GetFiles(rootFolder)
-                    .Where(f => allowedExtensions.Contains(Path.GetExtension(f)))
-);
-
-            // Recursively add files from subdirectories
-            foreach (var dir in Directory.GetDirectories(rootFolder))
-            {
-                files.AddRange(GetAllMediaFiles(dir));
-            }
-
-            return rootFolder;
-        }
-
-
 
         /// <summary>
         /// Get a list of all media files (mp3, mp4) for a specified idDocnum in the form XXXX00000100, including _CC, _IA, _E files.
@@ -160,47 +211,12 @@ namespace MedUtils.Features.Medias
 
 
         }
-
-
-
         /// <summary>
         /// Merge multiple audio files into a single file using Naudio.
         /// </summary> 
         /// <param name="outputFile" ></param>
         /// <param name="inputFiles"></param>
         /// <returns>outputFile duration</returns>
-        public static async Task<List<string>> MergeAudioFilesWithNaudio(string outputFile, List<string> inputFiles)
-        {
-            List<string> mergeFiles = new List<string>();
-            if (inputFiles.Count == 0)
-            {
-                return mergeFiles;
-            }
-            List <string> patternsToExclude = ["_IA", "_CC"];
-            var filterdInputFiles = inputFiles.Where(file => !patternsToExclude.Any(pattern => file.Contains(pattern))).ToList();
-            string[] fileArray = filterdInputFiles.ToArray();
-            Stream outputStream = new FileStream(outputFile, FileMode.Create, FileAccess.Write, FileShare.None);
-
-
-            foreach (string file in fileArray)
-            {
-                Mp3FileReader reader = new Mp3FileReader(file);
-                if ((outputStream.Position == 0) && (reader.Id3v2Tag != null))
-                {
-                    outputStream.Write(reader.Id3v2Tag.RawData, 0, reader.Id3v2Tag.RawData.Length);
-                }
-                Mp3Frame frame;
-                while ((frame = reader.ReadNextFrame()) != null)
-                {
-                    outputStream.Write(frame.RawData, 0, frame.RawData.Length);
-                }
-                mergeFiles.Add(file);
-            }
-            outputStream.Close();
-            outputStream.Dispose();
-            return mergeFiles;
-            //return await MediaTools.GetFileDuration(outputFile);
-        }
         public static string GetImageUrl(string idDocNum) 
         {
             if (idDocNum.Substring(2, 2) != "VI")

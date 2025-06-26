@@ -9,8 +9,7 @@ namespace MedUtils.Features.IAConferences
         public static async Task<IResult> GetInfosFromId(string id)
         {
             IAConferencesTools.MediaInfos infos = await IAConferencesTools.GetMediaInfosFromId(id);
-            string json = JsonSerializer.Serialize(infos, new JsonSerializerOptions { WriteIndented = true });
-            return Results.Content(json);
+            return Results.Json(infos);
         }
         public static async Task<IResult> MergeMediaFilesOnDisk(string idSyracuse)
         {

@@ -1,9 +1,6 @@
 ﻿using MARC;
 using MedUtils.Features.Medias;
 using MedUtils.Features.Syracuse;
-using System.Net.Security;
-using System.Runtime.CompilerServices;
-using static MedUtils.Features.IAConferences.IAConferencesTools;
 namespace MedUtils.Features.IAConferences
 {
     public class IAConferencesTools
@@ -19,52 +16,77 @@ namespace MedUtils.Features.IAConferences
             };
             string xmlData = await SyracuseTools.getRecordFromId(idSyracuse);
             string AdvancedXmlData = await SyracuseTools.getAdvancedRecordFromId(idSyracuse);
-            string DocNumPrefix = "";
 
             FileMARCXML fileMARCXML = new FileMARCXML(xmlData);
             mediaInfos.RecordType = SyracuseTools.GetNoticeTypeFromXML(AdvancedXmlData);
             mediaInfos.s856b = MarcDataField.getValues(fileMARCXML, "856$b")[0];
             mediaInfos.s856d = MarcDataField.getValues(fileMARCXML, "856$d")[0];
-
-            if ((mediaInfos.RecordType=="MPA1")||(mediaInfos.RecordType == "MPV1"))
+            
+            if ((mediaInfos.RecordType == "MPV1") || (mediaInfos.RecordType == "MPV2"))
             {
-                mediaInfos.idDocNum = mediaInfos.s856b;
+                if (!String.IsNullOrEmpty(mediaInfos.s856b))
+                {
+                    mediaInfos.idDocNum = mediaInfos.s856b;
+                }
+                else
+                {
+                    mediaInfos.idDocNum = mediaInfos.s856d[..11] + "00";
+                }
+                List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.idDocNum);
+
+                //todo : calculate mediaFiles.Stream
+                //
+                //
+
+                mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
+                VideoTCInfos infos = await MediaTools.GetVideoTCInfos(idSyracuse);
+                mediaInfos.tcin = infos.tcin;
+                mediaInfos.tcout = infos.tcout;
+                mediaInfos.duration = infos.duration;
+
+
+            }
+                if ((mediaInfos.RecordType=="MPA1")||(mediaInfos.RecordType == "MPA2")|| (mediaInfos.RecordType == "MPA3"))
+            {
+                if (!String.IsNullOrEmpty(mediaInfos.s856b))
+                {
+                    mediaInfos.idDocNum = mediaInfos.s856b;
+                }
+                else
+                {
+                    mediaInfos.idDocNum = mediaInfos.s856d[..11] + "00";
+                }
                 //take the 4 first char of idDocum to get DocNumPrefix 
-                DocNumPrefix = mediaInfos.idDocNum.Substring(0, 4);
-                List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.s856b);
+                //DocNumPrefix = mediaInfos.idDocNum.Substring(0, 4);
+                if (mediaInfos.idDocNum.Contains("XXXXXXXXX"))
+                {
+                    string localIdDocNum = MarcDataField.getValues(fileMARCXML, "945$a")[0];
+                    mediaInfos.s945a = localIdDocNum;
+                    mediaInfos.idDocNum = localIdDocNum[..11] + "00"; // Change from something like "CMAU000157001#02-10" to "CMAU000157000" 
+                }
+                List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.idDocNum);
+                string outputFilePath = mediaFiles[0].Substring(0, 42) + mediaInfos.idDocNum + "_" + idSyracuse + "_IA.mp3";
+
                 if (SyracuseTools.RecordHasChilds(fileMARCXML))
                 {
-                    if (mediaFiles.Count == 1) //Simple case : Record has childs but just one File
+                    if (mediaFiles.Count == 1) // Simple case : Record has childs but just one File
                     {
                         mediaInfos.path = mediaFiles[0];
-                        mediaInfos.stream = MediaTools.GetStreamUrl(mediaInfos.path);
-                        mediaInfos.duration = (double)await MediaTools.GetFileDuration(mediaInfos.path);
-                        mediaInfos.tcin = 0;
-                        mediaInfos.tcout = mediaInfos.duration;
-                        mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
                     }
                     else // Record has childs and multiple files
                     {
-                        
+                        mediaInfos.path = outputFilePath;
                     }
                 }
-                else //Simple case : No childs
+                else // Simple case : No childs
                 {
-                    if (mediaFiles.Count != 1) 
-                    {
-                        mediaInfos.path = "something went wrong, no childs but multiple or no media files found, mediaInfos.count = " + mediaFiles.Count.ToString();
-                        mediaInfos.image = "Current MediaPath : " + MediaTools.testMediaPath(mediaInfos.s856b);
-                    }
-                    else
-                    {
-                        mediaInfos.path = mediaFiles[0];
-                        mediaInfos.stream = MediaTools.GetStreamUrl(mediaInfos.path);
-                        mediaInfos.duration = (double)await MediaTools.GetFileDuration(mediaInfos.path);
-                        mediaInfos.tcin = 0;
-                        mediaInfos.tcout = mediaInfos.duration;
-                        mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
-                    }
+                    mediaInfos.path = MediaTools.getMediaPathFromIdDocnum(mediaInfos.s856d);
                 }
+                mediaInfos.stream = MediaTools.GetStreamUrl(mediaInfos.path);
+                mediaInfos.duration = (double)await MediaTools.GetFileDuration(mediaInfos.path);
+                mediaInfos.tcin = 0;
+                mediaInfos.tcout = mediaInfos.duration;
+                // mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
             }
             return mediaInfos;
         }
@@ -116,7 +138,7 @@ namespace MedUtils.Features.IAConferences
                 {
                     if (mediaFiles.Count == 1) //Record has childs but just one File
                     {    
-                        //Nothing merge
+                        //Nothing to be merged
                     }
                     else // Record has childs and multiple files
                     {
@@ -206,14 +228,11 @@ namespace MedUtils.Features.IAConferences
             public string? image { get; set; }
             public string info { get; set; }
         }
-        public class TechMediaInfos
+        public class VideoTCInfos
         {
-            public string path { get; set; }
-            public string stream { get; set; }
-            public int duration { get; set; }
-            public int tcin { get; set; }
-            public int tcout { get; set; }
-            public string? image { get; set; }
+            public double duration { get; set; }
+            public double tcin { get; set; }
+            public double tcout { get; set; }
         }
 
     }
