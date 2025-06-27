@@ -8,10 +8,12 @@ namespace MedUtils.Features.IAConferences
         {
             var BasicGroup = app.MapGroup("/IAConferences/query");
             var MergeFilesGroup = app.MapGroup("/IAConferences/MergeFiles");
+            var SyncConfDatabaseGroup = app.MapGroup("/IAConferences/Sync");
             BasicGroup.MapGet("/id/{id}", IAConferencesHandlers.GetInfosFromId);
 
             MergeFilesGroup.MapGet("/idSyracuse/{idSyracuse}", IAConferencesHandlers.MergeMediaFilesOnDisk);
             MergeFilesGroup.MapGet("/idDocnum/{RootIdDocnum}", IAConferencesHandlers.MergeMediaFilesFromIdDocNumOnDisk);
+            SyncConfDatabaseGroup.MapGet("/id/{id}", IAConferencesHandlers.SyncConferencesDatabase);
         }
     }
 }

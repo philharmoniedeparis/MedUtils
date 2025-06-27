@@ -24,5 +24,11 @@ namespace MedUtils.Features.IAConferences
             string json = JsonSerializer.Serialize(mergeFiles, new JsonSerializerOptions { WriteIndented = true });
             return Results.Content(json);
         }
+        public static async Task<IResult> SyncConferencesDatabase(string id)
+        {
+            string result = await IAConferencesTools.SyncConferencesDatabase(id);
+            //return Results.Json(new { Success = result });
+            return Results.Json(result);
+        }
     }
 }

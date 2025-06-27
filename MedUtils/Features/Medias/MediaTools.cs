@@ -130,7 +130,7 @@ namespace MedUtils.Features.Medias
             }
             else 
             {
-                MediaPath += ".mp4";
+                MediaPath += "_HD.mp4";
             }
             return MediaPath;
         }

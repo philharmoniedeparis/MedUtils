@@ -8,6 +8,7 @@ namespace MedUtils.Features.IAConferences
         /// <summary>
         /// Main API method to get media information from Syracuse and Media themselves
         /// </summary>
+        /// <param name="idSyracuse">The Syracuse ID of the media</param>
         public static async Task<MediaInfos> GetMediaInfosFromId(string idSyracuse)
         {
             MediaInfos mediaInfos = new MediaInfos
@@ -21,8 +22,8 @@ namespace MedUtils.Features.IAConferences
             mediaInfos.RecordType = SyracuseTools.GetNoticeTypeFromXML(AdvancedXmlData);
             mediaInfos.s856b = MarcDataField.getValues(fileMARCXML, "856$b")[0];
             mediaInfos.s856d = MarcDataField.getValues(fileMARCXML, "856$d")[0];
-            
-            if ((mediaInfos.RecordType == "MPV1") || (mediaInfos.RecordType == "MPV2"))
+
+            if ((mediaInfos.RecordType == "MPV1") || (mediaInfos.RecordType == "MPV2") || (mediaInfos.RecordType == "DAP1") || (mediaInfos.RecordType == "DAP2"))
             {
                 if (!String.IsNullOrEmpty(mediaInfos.s856b))
                 {
@@ -33,20 +34,30 @@ namespace MedUtils.Features.IAConferences
                     mediaInfos.idDocNum = mediaInfos.s856d[..11] + "00";
                 }
                 List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.idDocNum);
-
-                //todo : calculate mediaFiles.Stream
-                //
-                //
-
-                mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
-                VideoTCInfos infos = await MediaTools.GetVideoTCInfos(idSyracuse);
-                mediaInfos.tcin = infos.tcin;
-                mediaInfos.tcout = infos.tcout;
-                mediaInfos.duration = infos.duration;
-
-
+                foreach (string mediaFile in mediaFiles)
+                {
+                    if (mediaFile.Contains("_00_HQ.mp4"))
+                    {
+                        mediaInfos.path = mediaFile;
+                    }
+                }
+                mediaInfos.stream = MediaTools.GetStreamUrl(mediaInfos.path);
+                if ((mediaInfos.RecordType == "MPV2") || (mediaInfos.RecordType == "DAP2"))
+                {
+                    VideoTCInfos infos = await MediaTools.GetVideoTCInfos(idSyracuse);
+                    mediaInfos.tcin = infos.tcin;
+                    mediaInfos.tcout = infos.tcout;
+                    mediaInfos.duration = infos.duration;
+                    mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.s856d);
+                }
+                else //MPV1 ou DAP1
+                {
+                    mediaInfos.tcin = 0;
+                    mediaInfos.tcout = mediaInfos.duration = (double)await MediaTools.GetFileDuration(mediaInfos.path);
+                    mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
+                }
             }
-                if ((mediaInfos.RecordType=="MPA1")||(mediaInfos.RecordType == "MPA2")|| (mediaInfos.RecordType == "MPA3"))
+            if ((mediaInfos.RecordType=="MPA1")||(mediaInfos.RecordType == "MPA2")|| (mediaInfos.RecordType == "MPA3"))
             {
                 if (!String.IsNullOrEmpty(mediaInfos.s856b))
                 {
@@ -210,6 +221,36 @@ namespace MedUtils.Features.IAConferences
             }
             return result;
         }
+
+        /// <summary>
+        /// API method to sync the conferences database with Syracuse
+        /// </summary>
+        /// 
+        public static async Task<string> SyncConferencesDatabase(string idSyracuse)
+        {
+
+            if (idSyracuse != null)
+            {
+            // Call sync API, passing the idSyracuse and return true if successful
+                string syncUrl = $"http://poc-conferences.philharmoniedeparis.fr/api/recordings/sync?update&aloes_id={idSyracuse}" + "&streamsUrl=http://med-api.philharmoniedeparis.fr/IAConferences/query/id/{aloes_id}"; // Replace with actual sync URL
+                using HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(syncUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    string responseBody = await response.Content.ReadAsStringAsync();
+                    // Optionally, you can log or process the responseBody if needed
+                    return syncUrl; // Sync was successful
+                }
+                else
+                {
+                    // Handle the case where the sync failed
+                    Console.WriteLine($"Sync failed with status code: {response.StatusCode}");
+                    return syncUrl;
+                }
+            }
+            return "";
+        }
+
 
         public class MediaInfos
         {
