@@ -11,10 +11,13 @@ namespace MedUtils.Features.IAConferences
         /// <param name="idSyracuse">The Syracuse ID of the media</param>
         public static async Task<MediaInfos> GetMediaInfosFromId(string idSyracuse)
         {
+            idSyracuse = SyracuseTools.CleanSyracuseId(idSyracuse);
+
             MediaInfos mediaInfos = new MediaInfos
             {
                 idSyracuse = idSyracuse
             };
+            
             string xmlData = await SyracuseTools.getRecordFromId(idSyracuse);
             string AdvancedXmlData = await SyracuseTools.getAdvancedRecordFromId(idSyracuse);
 
@@ -57,7 +60,7 @@ namespace MedUtils.Features.IAConferences
                     mediaInfos.image = MediaTools.GetImageUrl(mediaInfos.idDocNum);
                 }
             }
-            if ((mediaInfos.RecordType=="MPA1")||(mediaInfos.RecordType == "MPA2")|| (mediaInfos.RecordType == "MPA3"))
+            if ((mediaInfos.RecordType == "MPA1") || (mediaInfos.RecordType == "MPA2") || (mediaInfos.RecordType == "MPA3"))
             {
                 if (!String.IsNullOrEmpty(mediaInfos.s856b))
                 {
@@ -101,7 +104,7 @@ namespace MedUtils.Features.IAConferences
             }
             return mediaInfos;
         }
-        
+
         /// <summary>
         /// API method to merge files from IdSyracuse. Warning ! this will create new files on disk
         /// </summary>
@@ -143,12 +146,12 @@ namespace MedUtils.Features.IAConferences
                     mediaInfos.idDocNum = localIdDocNum[..11] + "00"; //Change from something like "CMAU000157001#02-10" to "CMAU000157000" 
                 }
                 List<string> mediaFiles = MediaTools.GetAllMediaFiles(mediaInfos.idDocNum);
-                string outputFilePath = mediaFiles[0].Substring(0,42) + mediaInfos.idDocNum + "_" + idSyracuse + "_IA.mp3";
+                string outputFilePath = mediaFiles[0].Substring(0, 42) + mediaInfos.idDocNum + "_" + idSyracuse + "_IA.mp3";
 
                 if (SyracuseTools.RecordHasChilds(fileMARCXML))
                 {
                     if (mediaFiles.Count == 1) //Record has childs but just one File
-                    {    
+                    {
                         //Nothing to be merged
                     }
                     else // Record has childs and multiple files
@@ -160,9 +163,9 @@ namespace MedUtils.Features.IAConferences
                         else // MPA2 with childs
                         {
                             List<string> childs = SyracuseTools.getChildsIds(fileMARCXML);
-                            List<string> ListOfFilesToMerge = new List<string>(); 
-                            foreach (string child in childs) 
-                            {   
+                            List<string> ListOfFilesToMerge = new List<string>();
+                            foreach (string child in childs)
+                            {
                                 string idDocnum = await SyracuseTools.getIdDocnumFromId(child);
                                 string fileToMerge = MediaTools.getMediaPathFromIdDocnum(idDocnum);
                                 ListOfFilesToMerge.Add(fileToMerge);
@@ -198,7 +201,7 @@ namespace MedUtils.Features.IAConferences
         /// </summary>
 
         public static async Task<List<string>> MergeFilesFromRootIdDocnum(string IdDocnum)
-        { 
+        {
             List<string> result = new List<string>();
             List<string> ids = new List<string>();
             if (IdDocnum != null)
@@ -208,8 +211,8 @@ namespace MedUtils.Features.IAConferences
                 {
                     FileMARCXML fileMARCXML = new FileMARCXML(record);
                     ids = await SyracuseTools.getChildsAndSubChilds(fileMARCXML);
-                    foreach (string id in ids) 
-                    { 
+                    foreach (string id in ids)
+                    {
                         result.Add(id);
                         List<string> mergeFiles = await MergeFilesFromId(id);
                         foreach (string mergeFile in mergeFiles)
@@ -226,12 +229,16 @@ namespace MedUtils.Features.IAConferences
         /// API method to sync the conferences database with Syracuse
         /// </summary>
         /// 
-        public static async Task<string> SyncConferencesDatabase(string idSyracuse)
+        public static async Task<string> SyncConferencesDatabaseFromIdSyracuse(string idSyracuse)
         {
 
             if (idSyracuse != null)
             {
-            // Call sync API, passing the idSyracuse and return true if successful
+                // Call sync API, passing the idSyracuse and return true if successful
+                while (idSyracuse.Length < 7)
+                {
+                    idSyracuse = "0" + idSyracuse; // Ensure idSyracuse is at least 10 characters long
+                }
                 string syncUrl = $"http://poc-conferences.philharmoniedeparis.fr/api/recordings/sync?update&aloes_id={idSyracuse}" + "&streamsUrl=http://med-api.philharmoniedeparis.fr/IAConferences/query/id/{aloes_id}"; // Replace with actual sync URL
                 using HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(syncUrl);
@@ -239,16 +246,31 @@ namespace MedUtils.Features.IAConferences
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     // Optionally, you can log or process the responseBody if needed
-                    return syncUrl; // Sync was successful
+                    return syncUrl + "\n"; // Sync was successful
                 }
                 else
                 {
                     // Handle the case where the sync failed
-                    Console.WriteLine($"Sync failed with status code: {response.StatusCode}");
-                    return syncUrl;
+                    return  $"Sync failed for Id {idSyracuse} with status code: {response.StatusCode}" + "\n" + $"API request {syncUrl}";
                 }
             }
             return "";
+        }
+
+        public static async Task<List<string>> SyncConferencesFromIdDocnum(string RootIdDocnum)
+        {
+            FileMARCXML xmlRecord = new FileMARCXML(await SyracuseTools.getRecordFromIdDocnum(RootIdDocnum));
+            List<string> ids = await SyracuseTools.getChildsAndSubChilds(xmlRecord);
+            List<string>  Results = new List<string>();
+            foreach (string id in ids)
+            {
+                string result = await SyncConferencesDatabaseFromIdSyracuse(id);
+                if (!String.IsNullOrEmpty(result))
+                {
+                    Results.Add(result);
+                }
+            }
+            return Results;
         }
 
 

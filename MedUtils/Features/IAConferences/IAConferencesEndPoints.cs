@@ -13,7 +13,8 @@ namespace MedUtils.Features.IAConferences
 
             MergeFilesGroup.MapGet("/idSyracuse/{idSyracuse}", IAConferencesHandlers.MergeMediaFilesOnDisk);
             MergeFilesGroup.MapGet("/idDocnum/{RootIdDocnum}", IAConferencesHandlers.MergeMediaFilesFromIdDocNumOnDisk);
-            SyncConfDatabaseGroup.MapGet("/id/{id}", IAConferencesHandlers.SyncConferencesDatabase);
+            SyncConfDatabaseGroup.MapGet("/id/{id}", IAConferencesHandlers.SyncConferencesDatabaseFromId);
+            SyncConfDatabaseGroup.MapGet("/idDocnum/{rootIdDocnum}", IAConferencesHandlers.SyncConferencesDatabaseFromIdDocN);
         }
     }
 }

@@ -24,11 +24,17 @@ namespace MedUtils.Features.IAConferences
             string json = JsonSerializer.Serialize(mergeFiles, new JsonSerializerOptions { WriteIndented = true });
             return Results.Content(json);
         }
-        public static async Task<IResult> SyncConferencesDatabase(string id)
+        public static async Task<IResult> SyncConferencesDatabaseFromId(string id)
         {
-            string result = await IAConferencesTools.SyncConferencesDatabase(id);
+            string result = await IAConferencesTools.SyncConferencesDatabaseFromIdSyracuse(id);
             //return Results.Json(new { Success = result });
             return Results.Json(result);
+        }
+        public static async Task<IResult> SyncConferencesDatabaseFromIdDocN(string rootIdDocnum)
+        {
+            List<string> results = await IAConferencesTools.SyncConferencesFromIdDocnum(rootIdDocnum);
+            //return Results.Json(new { Success = result });
+            return Results.Json(results);
         }
     }
 }
