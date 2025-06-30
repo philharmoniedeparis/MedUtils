@@ -11,13 +11,14 @@ namespace MedUtils.Features.IAConferences
         /// <param name="idSyracuse">The Syracuse ID of the media</param>
         public static async Task<MediaInfos> GetMediaInfosFromId(string idSyracuse)
         {
-            idSyracuse = SyracuseTools.CleanSyracuseId(idSyracuse);
+
 
             MediaInfos mediaInfos = new MediaInfos
             {
                 idSyracuse = idSyracuse
             };
-            
+
+            idSyracuse = SyracuseTools.CleanSyracuseId(idSyracuse);
             string xmlData = await SyracuseTools.getRecordFromId(idSyracuse);
             string AdvancedXmlData = await SyracuseTools.getAdvancedRecordFromId(idSyracuse);
 
