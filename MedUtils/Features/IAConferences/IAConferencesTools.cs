@@ -240,7 +240,7 @@ namespace MedUtils.Features.IAConferences
                 {
                     idSyracuse = "0" + idSyracuse; // Ensure idSyracuse is at least 10 characters long
                 }
-                string syncUrl = $"http://poc-conferences.philharmoniedeparis.fr/api/recordings/sync?update&aloes_id={idSyracuse}" + "&streamsUrl=http://med-api.philharmoniedeparis.fr/IAConferences/query/id/{aloes_id}"; // Replace with actual sync URL
+                string syncUrl = $"http://poc-conferences:X%25k%5E%2Fy.gV%3EUre%3F%25U!m2v%3B%3AtnMF%3A%40Z.@poc-conferences.philharmoniedeparis.fr/api/recordings/sync?update&aloes_id={idSyracuse}" + "&streamsUrl=http://192.168.23.58/IAConferences/query/id/{aloes_id}"; 
                 using HttpClient client = new HttpClient();
                 HttpResponseMessage response = await client.GetAsync(syncUrl);
                 if (response.IsSuccessStatusCode)
