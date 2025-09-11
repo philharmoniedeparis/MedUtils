@@ -1,17 +1,47 @@
-﻿using Renci.SshNet;
-using Renci.SshNet.Sftp;
+﻿using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;           // IWebHostEnvironment lives here
+using Microsoft.Extensions.Configuration;     // IConfiguration
+using Renci.SshNet;
 
 namespace MedUtils.Features.CDN
 {
     public class CDNTools
     {
+
+        private readonly IWebHostEnvironment _env;
+        private readonly IConfiguration _config;
+        public CDNTools(IWebHostEnvironment env, IConfiguration config) 
+        { 
+            _env = env;
+            _config = config;
+        }
+
+        // No parameter needed — we already have _env
+        public string GetRootPath() => _env.ContentRootPath;        // project root
+        // If you need wwwroot instead:  _env.WebRootPath
+
+        public string GetKeyFilePath()
+        {
+            // appsettings.json:  "CDN": { "CDNkeyPath": "MedUtils/Features/CDN/cdn.ppk" }
+            var configured = _config["CDN:CDNkeyPath"];
+            if (string.IsNullOrWhiteSpace(configured))
+                throw new InvalidOperationException("Missing configuration key: CDN:CDNkeyPath");
+
+            // If the value is absolute, use it as-is; otherwise make it relative to ContentRoot
+            return Path.IsPathRooted(configured)
+                ? configured
+                : Path.Combine(_env.ContentRootPath, configured);
+        }
+ 
         // Connection settings 
         private static readonly string Host = "citemus.atanar.net";
         private static readonly int Port = 444;
         private static readonly string Username = "vod";
-        private static readonly string KeyFilePath = "C:\\Users\\rbailly\\Downloads\\cdn.ppk"; // Consider moving this to user secrets
+        //private static readonly string KeyFilePath = "..\\..\\..\\..\\MedUtils\\Features\\CDN\\cdn.ppk"; // Consider moving this to user secrets
+
 
         /// <summary>
         /// Upload media files to CDN by media type
@@ -20,8 +50,9 @@ namespace MedUtils.Features.CDN
         /// <param name="sourceFilePath">Local file path to upload</param>
         /// <param name="remoteDirectory">Target directory on remote server</param>
         /// <returns>True if upload was successful</returns>
-        public static async Task<bool> UploadMediaByFilePath(string sourceFilePath)
+        public async Task<bool> UploadMediaByFilePath(string sourceFilePath)
         {
+            
             string rootPath = "C:\\Users\\rbailly\\Downloads\\";
             sourceFilePath = Path.Combine(rootPath, sourceFilePath);
             if (!File.Exists(sourceFilePath))
@@ -55,8 +86,10 @@ namespace MedUtils.Features.CDN
         /// <summary>
         /// Upload a file using SFTP with SSH key authentication
         /// </summary>
-        private static bool UploadFileWithSftp(string localFilePath, string remoteFilePath)
+        private  bool UploadFileWithSftp(string localFilePath, string remoteFilePath)
         {
+            string KeyFilePath = GetKeyFilePath();
+
             try
             {
                 using var client = new SftpClient(Host, Port, Username, new PrivateKeyFile(KeyFilePath));
