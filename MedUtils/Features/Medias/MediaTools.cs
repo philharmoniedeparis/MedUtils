@@ -14,7 +14,9 @@ namespace MedUtils.Features.Medias
             public static string ffmpegTmpPath = "Features\\Medias\\tmp";
             public static string UrlCDNimages = "https://cdn.philharmoniedeparis.fr/http/images/poster/";
             public static string StreamDomainName = "https://stream.philharmoniedeparis.fr/conferences/_definst_/mp3:";
-            public static string mediaPath = "\\\\10.0.2.1\\conferences\\";
+            public static string ConferenceMediaPath = "\\\\10.0.2.1\\conferences\\";
+            public static string MediaPath = "\\\\10.0.2.1\\media\\";
+            public static string LiveMediaPath = "\\\\10.0.2.1\\live\\";
             public static string APIUrlForMedia = "https://otoplayer.philharmoniedeparis.fr/fr/conference/";
 
             public static HashSet<string> Prefixes = new HashSet<string> { "CMAU", "PLAU", "PPAU", "CMVI", "PLVI", "PPVI" };
@@ -123,7 +125,7 @@ namespace MedUtils.Features.Medias
             }
             string RootIdDocNum = idDocNum[..11] + "00";
             string SubFolderDocNum = idDocNum[..13];
-            MediaPath = Path.Combine(MediaParams.mediaPath, DocNumPrefix, RootIdDocNum,SubFolderDocNum,idDocNum);
+            MediaPath = Path.Combine(MediaParams.ConferenceMediaPath, DocNumPrefix, RootIdDocNum,SubFolderDocNum,idDocNum);
             if (idDocNum.Contains("AU"))
             {
                 MediaPath += ".mp3"; 
@@ -149,7 +151,7 @@ namespace MedUtils.Features.Medias
             {
                 DocNumPrefix = "XXVI";
             }
-            string rootFolder = Path.Combine(MediaParams.mediaPath, DocNumPrefix, RootIdDocNum);
+            string rootFolder = Path.Combine(MediaParams.ConferenceMediaPath, DocNumPrefix, RootIdDocNum);
             var allowedExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
             {
                 ".mp3", ".mp4"

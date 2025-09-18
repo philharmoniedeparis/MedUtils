@@ -2,9 +2,11 @@
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MedUtils.Features.Medias;
 using Microsoft.AspNetCore.Hosting;           // IWebHostEnvironment lives here
 using Microsoft.Extensions.Configuration;     // IConfiguration
 using Renci.SshNet;
+
 
 namespace MedUtils.Features.CDN
 {
@@ -35,6 +37,11 @@ namespace MedUtils.Features.CDN
                 ? configured
                 : Path.Combine(_env.ContentRootPath, configured);
         }
+
+        public string GetContentRootPath()
+        { 
+            return _env.ContentRootPath;
+        }
  
         // Connection settings 
         private static readonly string Host = "citemus.atanar.net";
@@ -44,49 +51,60 @@ namespace MedUtils.Features.CDN
 
 
         /// <summary>
-        /// Upload media files to CDN by media type
+        /// Upload images files to CDN
         /// </summary>
-        /// <param name="MediaType">Type of media to upload (e.g., "audio", "video")</param>
-        /// <param name="sourceFilePath">Local file path to upload</param>
-        /// <param name="remoteDirectory">Target directory on remote server</param>
-        /// <returns>True if upload was successful</returns>
-        public async Task<bool> UploadMediaByFilePath(string sourceFilePath)
+        /// <param name="idDocNum">Example : PPVI000123400</param>
+        /// <returns>List of uploaded files</returns>
+        public async Task<List<string>> UploadImagesByIdDocNum(string idDocNum)
         {
-            
-            string rootPath = "C:\\Users\\rbailly\\Downloads\\";
-            sourceFilePath = Path.Combine(rootPath, sourceFilePath);
-            if (!File.Exists(sourceFilePath))
+            string LiveMediaPath = MediaTools.MediaParams.LiveMediaPath;
+            string MediaPath = MediaTools.MediaParams.MediaPath;
+            var Prefixes = MediaTools.MediaParams.Prefixes;
+            var imagesDirectories = new HashSet<string> { "hd", "home", "ipad", "mini", "poster", "vignette", "docthumbs" };
+            string ImagesRootDir = Path.Combine(LiveMediaPath, "images");
+            string remoteRootDirectory = "/http/images/";
+            string remoteDirectory;
+            string remoteFileName;
+            string remoteFilePath;
+            string uploadedFile;
+            List<string> filesUploaded = new();
+            foreach (string imageDirectory in imagesDirectories)
             {
-                Console.WriteLine($"Source file not found: {sourceFilePath}");
-                return false;
+                List<string> images = getAllImages(idDocNum, Path.Combine(ImagesRootDir, imageDirectory));
+                remoteDirectory = remoteRootDirectory + imageDirectory;
+                foreach (string image in images) {
+                    remoteFileName = Path.GetFileName(image);
+                    remoteFilePath = Path.Combine(remoteDirectory, remoteFileName).Replace("\\", "/");
+                    uploadedFile = await Task.Run(() => UploadFileWithSftp(image, remoteFilePath));
+                    filesUploaded.Add(uploadedFile);
+                }
             }
-            string remoteDirectory = "/http/test/";
-            // Create a remote filename based on the source filename
-            string remoteFileName = Path.GetFileName(sourceFilePath);
-            string remoteFilePath = Path.Combine(remoteDirectory, remoteFileName).Replace("\\", "/");
-            
-            // Handle different media types
-            //switch (MediaType.ToLower())
-            //{
-            //    case "audio":
-            //        // Specific handling for audio files
-            //        remoteDirectory = "/audio";
-            //        remoteFilePath = Path.Combine(remoteDirectory, remoteFileName).Replace("\\", "/");
-            //        break;
-            //    case "video":
-            //        // Specific handling for video files
-            //        remoteDirectory = "/video";
-            //        remoteFilePath = Path.Combine(remoteDirectory, remoteFileName).Replace("\\", "/");
-            //        break;
-            //}
+            return filesUploaded;
+        }
 
-            return await Task.Run(() => UploadFileWithSftp(sourceFilePath, remoteFilePath));
+        public static List<string> getAllImages(string idDocNum, string imageDirectory)
+        {
+            List<string> ListOfimages = new List<string>();            
+            string idDocNumRoot = idDocNum[..11];
+            if (Directory.Exists(imageDirectory))
+            {
+
+                var extensions = new[] { ".png", ".jpg", ".jpeg" };
+
+                ListOfimages = Directory
+                    .GetFiles(imageDirectory, "*.*", SearchOption.TopDirectoryOnly)
+                    .Where(f => extensions.Contains(Path.GetExtension(f).ToLowerInvariant()))
+                    .Where(f => Path.GetFileName(f).StartsWith(idDocNumRoot, StringComparison.OrdinalIgnoreCase)) // optional filter
+                    .ToList();
+            }
+            return ListOfimages;
+
         }
 
         /// <summary>
         /// Upload a file using SFTP with SSH key authentication
         /// </summary>
-        private  bool UploadFileWithSftp(string localFilePath, string remoteFilePath)
+        private  string UploadFileWithSftp(string localFilePath, string remoteFilePath)
         {
             string KeyFilePath = GetKeyFilePath();
 
@@ -98,7 +116,7 @@ namespace MedUtils.Features.CDN
                 if (!client.IsConnected)
                 {
                     Console.WriteLine("Failed to connect to SFTP server.");
-                    return false;
+                    return ("Failed to connect to SFTP server.");
                 }
                 
                 // Make sure the directory exists
@@ -107,14 +125,14 @@ namespace MedUtils.Features.CDN
                 // Upload the file
                 using var fileStream = new FileStream(localFilePath, FileMode.Open);
                 client.UploadFile(fileStream, remoteFilePath, true); // Overwrite if exists
-                
+                fileStream.Close();
                 client.Disconnect();
-                return true;
+                return remoteFilePath;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error uploading file: {ex.Message}");
-                return false;
+                return ($"Error uploading file: {ex.Message}");
             }
         }
 

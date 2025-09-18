@@ -3,10 +3,10 @@
     public class CDNHandlers
     {
 
-        public static async Task<IResult> UploadMedia(string sourceFilePath, CDNTools cdn) 
+        public static async Task<IResult> UploadImages(string idDocNum, CDNTools cdn) 
         { 
-            bool IsUploadOk = await cdn.UploadMediaByFilePath(sourceFilePath);
-            return Results.Json(IsUploadOk);
+            List<string> FTPPath = await cdn.UploadImagesByIdDocNum(idDocNum);
+            return Results.Json(FTPPath);
         }
     }
 }

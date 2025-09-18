@@ -6,8 +6,8 @@ namespace MedUtils.Features.CDN
     {
         public static void MapCDNEndpoints(this WebApplication app) 
         {
-            var BasicGroup = app.MapGroup("/CDN/UploadFileTest");
-            BasicGroup.MapGet("/mediaFile/{sourceFilePath}", CDNHandlers.UploadMedia);
+            var BasicGroup = app.MapGroup("/CDN/UploadImages");
+            BasicGroup.MapGet("/IdDocnum/{idDocNum}", CDNHandlers.UploadImages);
         }
     }
 }
