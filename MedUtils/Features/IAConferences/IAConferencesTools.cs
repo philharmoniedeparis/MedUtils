@@ -1,10 +1,95 @@
 ﻿using MARC;
 using MedUtils.Features.Medias;
 using MedUtils.Features.Syracuse;
+using MedUtils.Utils;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace MedUtils.Features.IAConferences
 {
     public class IAConferencesTools
     {
+
+        ///<summary>
+        ///API to get StrapiRecord from IdSyracuse and Media itself (duration)
+        ///</summary>
+        /// <param name="idSyracuse">The Syracuse ID of the media</param>
+        /// <returns>StrapiRecord</returns>
+
+        public static async Task<string> GetStrapiRecordAsync(string idSyracuse)
+        {
+            StrapiRecord strapiRecord = new StrapiRecord
+            {
+                aloes_id = idSyracuse
+            };
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull // ignore nulls
+            };
+            idSyracuse = SyracuseTools.CleanSyracuseId(idSyracuse);
+            string xmlData = await SyracuseTools.getRecordFromId(idSyracuse);
+            FileMARCXML fileMARCXML = new FileMARCXML(xmlData);
+            if ((string.IsNullOrEmpty( xmlData )) || (fileMARCXML.Count==0)) {
+                strapiRecord.error = "Record not found in Syracuse";
+                strapiRecord.aloes_id = null;
+                EmptyPropertyTools.CleanEmptiesToNull(strapiRecord);
+                return JsonSerializer.Serialize(strapiRecord, options);
+            }
+            string AdvancedXmlData = await SyracuseTools.getAdvancedRecordFromId(idSyracuse);
+            string recordType = SyracuseTools.GetNoticeTypeFromXML(AdvancedXmlData);
+            strapiRecord.type = SyracuseTools.getAudioOrVideoTypeFromNoticeType(recordType);
+            if (strapiRecord.type == "record is neither audio or video type")
+            {
+                strapiRecord.error = strapiRecord.type;
+                strapiRecord.type = null;
+                strapiRecord.aloes_id = null;
+                EmptyPropertyTools.CleanEmptiesToNull(strapiRecord);
+                return JsonSerializer.Serialize(strapiRecord, options);
+            }
+            strapiRecord.title = MarcDataField.getValues(fileMARCXML, "200$a")[0];
+            strapiRecord.subtitle = MarcDataField.getValues(fileMARCXML, "200$e")[0];
+            strapiRecord.date = MarcDataField.getValues(fileMARCXML, "946$a")[0];
+            strapiRecord.description = MarcDataField.getValues(fileMARCXML, "300$a")[0];
+            string duration = MarcDataField.getValues(fileMARCXML, "215$a")[0];
+            if (!string.IsNullOrEmpty(duration))
+            {
+                strapiRecord.duration = ParseDuration(duration);
+            }
+            strapiRecord.creator = MarcDataField.getValues(fileMARCXML, "200$f")[0];
+            strapiRecord.contributors = MarcDataField.getValues(fileMARCXML, "200$g");
+            strapiRecord.keywords = MarcDataField.getValues(fileMARCXML, "911$a");
+            List<MarcDataField.Person> persons = new List<MarcDataField.Person>();
+            if (strapiRecord.type == "audio")
+            {
+                strapiRecord.personal = MarcDataField.getPhysicalPersons(fileMARCXML, "700");
+                strapiRecord.speakers = MarcDataField.getValues(fileMARCXML, "200$f");
+            }
+            else //video
+            {
+                if ((recordType == "MPV1") || (recordType == "DAP1") || (recordType == "SVV1"))
+                {
+                    strapiRecord.personal = MarcDataField.getPhysicalPersons(fileMARCXML, "703");
+                    strapiRecord.speakers = MarcDataField.getValues(fileMARCXML, "200$g");
+                }
+                else
+                {
+                    strapiRecord.personal = MarcDataField.getPhysicalPersons(fileMARCXML, "702");
+                    strapiRecord.speakers = MarcDataField.getValues(fileMARCXML, "200$f");
+                }
+            }
+            if (SyracuseTools.RecordHasChilds(fileMARCXML)) {
+                strapiRecord.children = SyracuseTools.getChildsIds(fileMARCXML);
+            }
+            strapiRecord.urns = MarcDataField.getValues(fileMARCXML, "856$d");
+            strapiRecord.uri = MarcDataField.getValues(fileMARCXML, "856$b")[0];
+            strapiRecord.excerpts = MarcDataField.getValues(fileMARCXML, "948$m");
+
+
+            EmptyPropertyTools.CleanEmptiesToNull(strapiRecord);
+            return JsonSerializer.Serialize(strapiRecord, options);
+        }
+
+
         /// <summary>
         /// Main API method to get media information from Syracuse and Media themselves
         /// </summary>
@@ -274,6 +359,127 @@ namespace MedUtils.Features.IAConferences
             return Results;
         }
 
+        /// <summary>
+        /// Parses a duration string and converts it into the total number of seconds.
+        /// </summary>
+        /// <remarks>This method normalizes the input string by trimming whitespace and replacing common
+        /// abbreviations (e.g., "min", "mn", "sec") with their respective shorthand ("m", "s"). If the last segment of
+        /// the input is a number without a unit, it is assumed to represent seconds.</remarks>
+        /// <param name="value">A string representing a duration, which may include hours, minutes, and seconds. Supported formats include
+        /// combinations of "h" (hours), "m" (minutes), and "s" (seconds), with optional spaces or abbreviations (e.g.,
+        /// "1h 30m", "90m", "45s").</param>
+        /// <returns>The total duration in seconds. Returns 0 if the input is null, empty, or contains only whitespace.</returns>
+        /// <exception cref="ArgumentException">Thrown if the input string contains an invalid duration format.</exception>
+        public static int ParseDuration(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return 0;
+
+            var normalized = value.Trim()
+                .Replace("  ", " ")
+                .Replace(" h", "h")
+                .Replace(" min", "m")
+                .Replace(" mn", "m")
+                .Replace(" mi", "m")
+                .Replace(" sec", "s");
+
+            var items = normalized
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+
+            if (items.Count == 0)
+                return 0;
+
+            // If the last item is just a number, add "s"
+            if (int.TryParse(items[^1], out int lastNumber))
+            {
+                items[^1] = $"{lastNumber}s";
+            }
+
+            int result = 0;
+
+            foreach (var item in items)
+            {
+                if (item.EndsWith("h"))
+                {
+                    result += int.Parse(item[..^1]) * 60 * 60;
+                }
+                else if (item.EndsWith("m"))
+                {
+                    result += int.Parse(item[..^1]) * 60;
+                }
+                else if (item.EndsWith("s"))
+                {
+                    result += int.Parse(item[..^1]);
+                }
+                else
+                {
+                    throw new ArgumentException($"Wrong duration format: {value}");
+                }
+            }
+
+            return result;
+        }
+
+
+        public class StrapiRecord   
+        {
+            [JsonPropertyName("aloes_id")]
+            public string aloes_id { get; set; }
+
+            [JsonPropertyName("type")]
+            public string type { get; set; }
+
+            [JsonPropertyName("title")]
+            public string title { get; set; }
+
+            [JsonPropertyName("subtitle")]
+            public string subtitle { get; set; }
+
+            // Stays string because it's "YYYYMMDD" in your JSON.
+            [JsonPropertyName("date")]
+            public string date { get; set; }
+
+            [JsonPropertyName("description")]
+            public string description { get; set; }
+
+            [JsonPropertyName("duration")]
+            public int? duration { get; set; }
+
+            [JsonPropertyName("creator")]
+            public string creator { get; set; }
+
+            [JsonPropertyName("contributors")]
+            public List<string> contributors { get; set; } = new();
+
+            [JsonPropertyName("keywords")]
+            public List<string> keywords { get; set; } = new();
+
+            [JsonPropertyName("personal")]
+            public List<MarcDataField.Person> personal { get; set; } = new();
+
+            [JsonPropertyName("speakers")]
+            public List<string> speakers { get; set; } = new();
+
+            [JsonPropertyName("children")]
+            public List<string> children { get; set; } = new();
+
+            [JsonPropertyName("uri")]
+            public string uri { get; set; }
+
+            [JsonPropertyName("urns")]
+            public List<string> urns { get; set; } = new();
+
+            [JsonPropertyName("excerpts")]
+            public List<string> excerpts { get; set; } = new();
+
+            public string error { get; set; }
+
+            // Optional helper to parse the date string (YYYYMMDD) into DateOnly
+            [JsonIgnore]
+            public DateOnly? ParsedDate =>
+                DateOnly.TryParseExact(date, "yyyyMMdd", out var d) ? d : (DateOnly?)null;
+        }
 
         public class MediaInfos
         {

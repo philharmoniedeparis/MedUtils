@@ -10,6 +10,7 @@ namespace MedUtils.Features.IAConferences
             var MergeFilesGroup = app.MapGroup("/IAConferences/MergeFiles");
             var SyncConfDatabaseGroup = app.MapGroup("/IAConferences/Sync");
             BasicGroup.MapGet("/id/{id}", IAConferencesHandlers.GetInfosFromId);
+            BasicGroup.MapGet("/tostrapi/id/{id}", IAConferencesHandlers.GetStrapiRec);
 
             MergeFilesGroup.MapGet("/idSyracuse/{idSyracuse}", IAConferencesHandlers.MergeMediaFilesOnDisk);
             MergeFilesGroup.MapGet("/idDocnum/{RootIdDocnum}", IAConferencesHandlers.MergeMediaFilesFromIdDocNumOnDisk);

@@ -1,6 +1,7 @@
 ﻿using MARC;
 using System;
 using System.Diagnostics.Eventing.Reader;
+using System.Text.Json.Serialization;
 using System.Xml.Linq;
 
 namespace MedUtils.Features.Syracuse
@@ -23,6 +24,10 @@ namespace MedUtils.Features.Syracuse
             public static string? apiUrl = conf["apiUrl"];
             public static string? accessKey = conf["accessKey"];
         }
+
+        public static HashSet<string> AudioTypes = new HashSet<string> { "MPA1", "MPA2", "MPA3", "DSON", "DSP1", "DSP2", "SVA1", "SVA2", "SVA3" };
+        public static HashSet<string> VideoTypes = new HashSet<string> { "MPV1", "MPV2", "DAP1", "DAP2", "SVV1","SVV2" };
+
         //Request to Syracuse API
         public static async Task<string> postRequest(object requestData, string Url)
         {
@@ -273,6 +278,14 @@ namespace MedUtils.Features.Syracuse
             return GetNoticeTypeFromXML(xmlRecord);
         }
 
+        public static string getAudioOrVideoTypeFromNoticeType(string  noticeType)
+        {
+            string AudioOrVideoType = "record is neither audio or video type";
+            if (AudioTypes.Contains(noticeType)) AudioOrVideoType = "audio";
+            if (VideoTypes.Contains(noticeType)) AudioOrVideoType = "video";
+            return AudioOrVideoType;
+        }
+
         // Check if Notice Has Childs
         public static bool RecordHasChilds(FileMARCXML xmlRecord)
         {
@@ -390,6 +403,8 @@ namespace MedUtils.Features.Syracuse
             return values;
         }
         /// Get values from a MARC XML record based on the MARC XML itself and field with '$' (e.g. "100$a")
+        
+        
         public static List<string> getValues(FileMARCXML xmlMarcRecords, string myFieldAndSubfield)
         {
 
@@ -419,6 +434,49 @@ namespace MedUtils.Features.Syracuse
             }
             if (values.Count == 0) values.Add("");
             return values;
+        }
+
+        //Get Persons from MARC XML record
+        //Works only with 700, 701, 702, 703
+        public static List<Person> getPhysicalPersons(FileMARCXML xmlMarcRecords, string PersonField)
+        {
+            var AllowedPersonFields = new HashSet<string> { "700", "701", "702", "703" };
+
+            List<Person> persons = new List<Person>();
+            if (AllowedPersonFields.Contains(PersonField))
+            {
+                Record xmlRecord = xmlMarcRecords[0];
+                List<Field> fields = xmlRecord.GetFields(PersonField);
+                foreach (DataField dataField in fields)
+                {
+                    Person person = new Person();
+                    Subfield Id = dataField['3'];
+                    Subfield LastName = dataField['a'];
+                    Subfield FirstName = dataField['b'];
+                    Subfield Role = dataField['4'];
+                    person.id = Id.Data;
+                    person.first_name = FirstName.Data;
+                    person.role = Role.Data;
+                    person.last_name = LastName.Data;
+                    persons.Add(person);
+                }
+            }
+            return persons;
+        
+        }
+        public class Person
+        {
+            [JsonPropertyName("id")]
+            public string id { get; set; }
+
+            [JsonPropertyName("first_name")]
+            public string first_name { get; set; }
+
+            [JsonPropertyName("last_name")]
+            public string last_name { get; set; }
+
+            [JsonPropertyName("role")]
+            public string role { get; set; }
         }
     }
 }

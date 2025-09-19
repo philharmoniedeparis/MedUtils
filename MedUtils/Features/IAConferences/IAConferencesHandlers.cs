@@ -36,5 +36,11 @@ namespace MedUtils.Features.IAConferences
             //return Results.Json(new { Success = result });
             return Results.Json(results);
         }
+        public static async Task<IResult> GetStrapiRec(string id) 
+        {
+            string results = await IAConferencesTools.GetStrapiRecordAsync(id);
+            //return Results.Json(new { Success = result });
+            return Results.Content(results);
+        }
     }
 }
